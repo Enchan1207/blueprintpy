@@ -3,5 +3,5 @@
 #
 
 from .argument import Argument
-from .config import Config
 from .content import Content
+from .config import Config
