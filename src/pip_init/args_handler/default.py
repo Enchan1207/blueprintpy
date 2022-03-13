@@ -1,11 +1,11 @@
 #
-#
+# デフォルト引数ハンドラ
 #
 
 from typing import List
 
 from ..argument import Argument
-from .base import ArgsHandlerBase
+from . import ArgsHandlerBase
 
 
 class DefaultArgsHandler(ArgsHandlerBase):

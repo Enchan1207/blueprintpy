@@ -4,7 +4,7 @@
 
 from typing import List
 
-from .args_handler.base import ArgsHandlerBase
+from .args_handler import ArgsHandlerBase
 
 from .argument import Argument
 from .content import Content
