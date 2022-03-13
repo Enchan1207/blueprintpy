@@ -25,3 +25,6 @@ class Config:
             args (List[Argument]): テンプレート引数リスト
             contents (List[Content]): 展開されるファイルコンテンツのリスト
         """
+        self.name = name
+        self.args = args
+        self.contents = contents

@@ -15,3 +15,6 @@ class Content:
             src (str): オリジナル相対パス
             dest (str): コピー先相対パス
         """
+
+        self.src = src
+        self.dest = dest

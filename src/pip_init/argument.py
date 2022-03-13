@@ -22,3 +22,8 @@ class Argument:
             argtype (Optional[str], optional): 引数タイプ
             default_value (Optional[str], optional): デフォルト値
         """
+
+        self.name = name
+        self.description = description
+        self.argtype = argtype
+        self.default_value = default_value
