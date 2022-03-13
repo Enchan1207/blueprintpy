@@ -4,6 +4,8 @@
 
 from typing import List
 
+from .args_handler.base import ArgsHandlerBase
+
 from .argument import Argument
 from .content import Content
 
@@ -15,7 +17,8 @@ class Config:
     def __init__(self,
                  name: str,
                  args: List[Argument],
-                 contents: List[Content]) -> None:
+                 contents: List[Content],
+                 args_handler: ArgsHandlerBase) -> None:
         """テンプレート構成を初期化します.
 
         Args:
