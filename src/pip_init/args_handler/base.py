@@ -12,8 +12,8 @@ class ArgsHandlerBase(metaclass=ABCMeta):
     """テンプレート引数ハンドラ
     """
 
-    @abstractmethod
     @staticmethod
+    @abstractmethod
     def handle_args(args: List[Argument]) -> List[Argument]:
         """与えられたテンプレート引数リストに適切な値を挿入します。
 
