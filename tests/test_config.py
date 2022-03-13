@@ -12,5 +12,7 @@ class testTemplateConfig(TestCase):
 
     def testInstantiateConfig(self):
         handler = DefaultArgsHandler()
+        print(handler.handlers)
+
         config = Config("", [], [], handler)
         print(config)
