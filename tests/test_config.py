@@ -4,7 +4,7 @@
 
 from unittest import TestCase
 
-from src.pip_init.args_handler.default import DefaultArgsHandler
+from src.pip_init.args_handler import DefaultArgsHandler
 from src.pip_init.config import Config
 
 
