@@ -12,5 +12,4 @@ class DefaultArgsHandler(ArgsHandlerBase):
 
     @staticmethod
     def handle_args(args: List[Argument]) -> List[Argument]:
-        # あんだー こんすとらくしょん
         raise NotImplementedError()
