@@ -8,9 +8,9 @@ version=0.1.0
 description={{ project_descripiton }}
 license={{ license }}
 license_files=file: LICENSE
-author={{ author }}
-author_email={{ author_email }}
-url={{ repo_url }}
+author=
+author_email=
+url=
 include_package_data=True
 zip_safe=False
 
@@ -20,6 +20,10 @@ package_dir=
 packages=find:
 
 install_requires =
+{% for module_name in dependencies %}
+    module_name
+{% endfor %}
+
 
 [options.packages.find]
 where=src

@@ -11,7 +11,7 @@ files=src/
 [mypy-setuptools.*]
     ignore_missing_imports = True
 
-{% for module_name in mypy_ignoring_modules %}
+{% for module_name in dependencies %}
 [mypy-module_name.*]
     ignore_missing_imports = True
 {% endfor %}
