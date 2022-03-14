@@ -1,0 +1,25 @@
+#
+#
+#
+
+[metadata]
+name={{ project_name }}
+version=0.1.0
+description={{ project_descripiton }}
+license={{ license }}
+license_files=file: LICENSE
+author={{ author }}
+author_email={{ author_email }}
+url={{ repo_url }}
+include_package_data=True
+zip_safe=False
+
+[options]
+package_dir=
+    =src
+packages=find:
+
+install_requires =
+
+[options.packages.find]
+where=src
