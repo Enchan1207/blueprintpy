@@ -2,6 +2,7 @@
 # テンプレート構成のテスト
 #
 
+from json import JSONDecodeError
 from unittest import TestCase
 
 from src.pip_init.args_handler import DefaultArgsHandler
@@ -21,7 +22,7 @@ class testTemplateConfig(TestCase):
         config = Config("", [], [])
         print(config)
 
-    def testLoadConfigFromJSON(self):
+    def testLoadValidConfigFromJSON(self):
         """ JSON構成ファイルからConfigを生成
         """
 
@@ -63,3 +64,70 @@ class testTemplateConfig(TestCase):
         """
         config = ConfigLoader.load(config_json_str)
         print(config)
+
+    def testLoadInValidConfigFromJSON(self):
+        """ 不正なJSON構成ファイルからConfigを生成
+        """
+
+        # 1. jsonとして不適切 JSONDecodeError
+        config_json_str = """
+        """
+
+        with self.assertRaises(JSONDecodeError):
+            ConfigLoader.load(config_json_str)
+
+        # 2. 要求キー不十分 KeyError
+        config_json_str = """
+        {
+            "name": "invalid json"
+        }
+        """
+
+        with self.assertRaises(KeyError):
+            ConfigLoader.load(config_json_str)
+
+        # 3. フォーマット不正 ValueError
+        config_json_str = """
+        {
+            "name": "invalid json",
+            "args": [
+                {
+                    "name": "project_name",
+                    "description": "The name of project"
+                },
+                {
+                    "name": "invalid args with insufficient params"
+                },
+                {
+                    "name": "invalid args with unexpected params",
+                    "invalid": ""
+                }
+            ],
+            "contents":[
+
+            ]
+        }
+        """
+
+        with self.assertRaises(ValueError):
+            ConfigLoader.load(config_json_str)
+
+        # 4. インポート先不明 ImportError
+        config_json_str = """
+        {
+            "name": "invalid json",
+            "args": [
+                {
+                    "name": "project_name",
+                    "description": "The name of project"
+                }
+            ],
+            "args_handler": "src.invalid_module",
+            "contents":[
+
+            ]
+        }
+        """
+
+        with self.assertRaises(ImportError):
+            ConfigLoader.load(config_json_str)
