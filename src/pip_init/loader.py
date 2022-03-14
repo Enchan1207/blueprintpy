@@ -21,6 +21,11 @@ class ConfigLoader:
         Args:
             config_json_str (str): json形式のテンプレート構成情報
 
+        Raises:
+            KeyError: 構成情報に必要なプロパティが含まれていなかった場合.
+            ValueError: 構成情報に不正な値が含まれていた場合.
+            ModuleNotFoundError, ImportError: 引数ハンドラのインポートに失敗した場合.
+
         Returns:
             Config: 生成結果
         """
@@ -29,11 +34,17 @@ class ConfigLoader:
         config_json = JSONDecoder().decode(config_json_str)
 
         # ルートに name, args, contentsがあることを期待する
-        name, args, contents = tuple([config_json[key] for key in ['name', 'args', 'contents']])
+        try:
+            name, args, contents = tuple([config_json[key] for key in ['name', 'args', 'contents']])
+        except KeyError:
+            raise KeyError("name, args, and contents are required as root property of json.")
 
         # args, contentsはそれぞれインスタンスに起こす
-        arg_instances = [Argument(**arg) for arg in args]
-        content_instances = [Content(**content) for content in contents]
+        try:
+            arg_instances = [Argument(**arg) for arg in args]
+            content_instances = [Content(**content) for content in contents]
+        except TypeError:
+            raise ValueError("unexpected parameter of initilaize Argument or Content")
 
         # args_handlerが存在するならモジュールをロードする この時点でArgsHandlerBase.handlerからアクセスできるようになっているはず
         args_handler_path: Optional[str] = config_json['args_handler'] if 'args_handler' in config_json else None
