@@ -12,16 +12,6 @@ from src.pip_init.loader import ConfigLoader
 
 class testTemplateConfig(TestCase):
 
-    def testInstantiateConfig(self):
-        """ 単純なインスタンス化 importステートメントの確認
-        """
-
-        handler = DefaultArgsHandler()
-        print(handler.handlers)
-
-        config = Config("", [], [])
-        print(config)
-
     def testLoadValidConfigFromJSON(self):
         """ JSON構成ファイルからConfigを生成
         """
@@ -62,8 +52,7 @@ class testTemplateConfig(TestCase):
             ]
         }
         """
-        config = ConfigLoader.load(config_json_str)
-        print(config)
+        ConfigLoader.load(config_json_str)
 
     def testLoadInValidConfigFromJSON(self):
         """ 不正なJSON構成ファイルからConfigを生成
