@@ -5,7 +5,7 @@
 from json import JSONDecodeError
 from unittest import TestCase
 
-from src.pip_init_cli.loader import ConfigLoader
+from src.pip_init_cli.config_loader import ConfigLoader
 
 
 class testTemplateConfig(TestCase):

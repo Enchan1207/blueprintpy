@@ -14,8 +14,8 @@ from typing import List
 from unittest import TestCase
 
 from src.pip_init import Argument, Config, Content, ContentBuilder
-from src.pip_init_cli.loader import ConfigLoader
-from src.pip_init_cli.serializer import ConfigSerializer
+from src.pip_init_cli.config_loader import ConfigLoader
+from src.pip_init_cli.config_serializer import ConfigSerializer
 
 
 class testContentBuilder(TestCase):
