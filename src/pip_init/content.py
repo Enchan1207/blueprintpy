@@ -33,4 +33,4 @@ class Content:
             self.use_template_engine = use_template_engine
         else:
             _, suffix = os.path.splitext(src)
-            self.use_template_engine = suffix in ['j2', 'jinja2']
+            self.use_template_engine = suffix in ['.j2', '.jinja2']
