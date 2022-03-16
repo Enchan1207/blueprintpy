@@ -5,9 +5,7 @@
 from json import JSONDecodeError
 from unittest import TestCase
 
-from src.pip_init.args_handler import DefaultArgsHandler
-from src.pip_init.config import Config
-from src.pip_init.loader import ConfigLoader
+from src.pip_init_cli.loader import ConfigLoader
 
 
 class testTemplateConfig(TestCase):
@@ -35,7 +33,6 @@ class testTemplateConfig(TestCase):
                     "default_value": "3.9"
                 }
             ],
-            "args_handler": "src.pip_init.args_handler.default",
             "contents": [
                 {
                     "src": "setup.cfg",

@@ -2,24 +2,13 @@
 # ContentExtractorのテスト
 #
 
-import os
 import random
 import string
 import tempfile
-from functools import reduce
-from json import JSONDecoder
-from json.encoder import JSONEncoder
 from pathlib import Path
-from typing import List
 from unittest import TestCase
 
-from src.pip_init.argument import Argument
-from src.pip_init.config import Config
-from src.pip_init.content import Content
-from src.pip_init.content_builder import ContentBuilder
-from src.pip_init.content_extractor import ContentExtractor
-from src.pip_init.loader import ConfigLoader
-from src.pip_init.serializer import ConfigSerializer
+from src.pip_init import Argument, Content, ContentBuilder, ContentExtractor
 
 
 class testContentExtractor(TestCase):
