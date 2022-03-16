@@ -37,7 +37,12 @@ class ContentBuilder:
 
         # テンプレート引数はdictに変換
         template_parameter_dicts: List[Dict[str, Any]] = [{arg.name: arg.value} for arg in template_args]
-        self.template_args: Dict[str, Any] = reduce(lambda prev, next: prev | next, template_parameter_dicts)
+        if len(template_parameter_dicts) == 0:
+            # (functools.reduceは空っぽのシーケンスに使うと怒られる)
+            self.template_args: Dict[str, Any] = {}
+            return
+
+        self.template_args = reduce(lambda prev, next: prev | next, template_parameter_dicts)
 
     def build(self, content: Content) -> PreparedContent:
         """引数に与えられたContentオブジェクトを読み込んで処理し、展開可能なContentオブジェクトを生成します.
