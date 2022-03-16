@@ -2,7 +2,7 @@
 # テンプレート引数
 #
 
-from typing import Optional
+from typing import Any, Optional
 
 
 class Argument:
@@ -27,3 +27,4 @@ class Argument:
         self.description = description
         self.argtype = argtype
         self.default_value = default_value
+        self.value: Any = None
