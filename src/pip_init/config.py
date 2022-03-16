@@ -4,8 +4,6 @@
 
 from typing import List, Optional
 
-from .args_handler import ArgsHandlerBase
-
 from .argument import Argument
 from .content import Content
 
