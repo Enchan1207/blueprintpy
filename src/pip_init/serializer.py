@@ -1,12 +1,9 @@
 #
 # コンフィグシリアライザ
 #
-import importlib
-from json.decoder import JSONDecoder
-from typing import Any, Dict, Optional
+from functools import reduce
+from typing import Any, Dict
 
-from .argument import Argument
-from .content import Content
 from .config import Config
 
 
@@ -24,4 +21,28 @@ class ConfigSerializer:
         Returns:
             Dict[str, Any]: シリアライズ結果
         """
-        raise NotImplementedError()
+
+        serialized: Dict[str, Any] = {}
+
+        # 名前はそのまま
+        serialized['name'] = config.name
+
+        # Argumentは適当に処理する valueはコンストラクタにないのでスルー
+        serialized_args = [
+            reduce(
+                lambda p, n: p | n,
+                list(
+                    [{key: getattr(arg, key)}
+                     if getattr(arg, key) is not None else{} for key in ['name', 'description', 'argtype', 'default_value']]))
+            for arg in config.args]
+        serialized['args'] = serialized_args
+
+        # ハンドラはそのまま ただし存在しなければ追加しない
+        if config.args_handler_path is not None:
+            serialized['args_handler'] = config.args_handler_path
+
+        # Contentも同様
+        serialized_contents = [{'src': content.src, 'dest': content.dest} for content in config.contents]
+        serialized['contents'] = serialized_contents
+
+        return serialized
