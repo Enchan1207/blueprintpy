@@ -50,7 +50,7 @@ class ContentBuilder:
         """
 
         # Content.destをf文字列展開
-        formatted_dest = content.dest.format(self.template_args)
+        formatted_dest = content.dest.format(**self.template_args)
 
         # それぞれ絶対パスに変換
         source_abspath = self.template_root / content.src
