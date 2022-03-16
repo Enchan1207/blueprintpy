@@ -52,4 +52,4 @@ class ConfigLoader:
             importlib.import_module(args_handler_path)
 
         # Config生成
-        return Config(name, arg_instances, content_instances)
+        return Config(name, arg_instances, content_instances, args_handler_path)
