@@ -2,6 +2,7 @@
 # ContentBuilderのテスト
 #
 
+import os
 import random
 import string
 import tempfile
@@ -87,7 +88,51 @@ class testContentBuilder(TestCase):
                 [self.assertEqual(getattr(arg_in_file, key), getattr(arg, key))
                  for key in ['name', 'description', 'argtype', 'default_value']]
 
-        # いいですか　これが何をしているか全くわからないテストケースです
+    def testBuildContentWithJinja(self):
+        """jinjaテンプレートを含むテンプレートのビルドと展開
+        """
+
+        # 適当にテンプレート引数を生成
+        args_mock = [Argument(f"arg_{n}", self.random_strings(20), self.random_strings(5), self.random_strings(20)) for n in range(10)]
+        for arg in args_mock:
+            arg.value = self.random_strings(30)
+
+        # 引数はひとつだけ特殊なのを入れておく
+        array_arg = Argument("array_test", "", "array", None)
+        array_arg.value = [arg.value for arg in args_mock]
+        args_mock.append(array_arg)
+
+        # テンプレートコンテンツはちょっと手を入れる
+        contents_mock: List[Content] = []
+
+        # 1. 拡張子 .j2 のファイルを生成 中身は各引数の名前(つまり値が展開されるはず)
+        template_1 = "".join([f"{{{{ {arg.name} }}}}" for arg in args_mock[0:len(args_mock) - 1]])
+        template_1_name = f"{self.random_strings(10)}.j2"
+        template_1_path = str(self.template_root_path / f"{template_1_name}")
+        content_1 = Content(template_1_name, "")
+        contents_mock.append(content_1)
+        with open(template_1_path, "w") as f:
+            f.write(template_1)
+
+        # 2. 拡張子ではなくイニシャライザで明示的にテンプレート処理を要求, テンプレ内ではArgumentで渡された配列を展開
+        template_2 = "{% for i in array_test %}{{ i }}{% endfor %}"
+        template_2_name = f"{self.random_strings(10)}"
+        template_2_path = str(self.template_root_path / f"{template_2_name}")
+        content_2 = Content(template_2_name, "", True)
+        contents_mock.append(content_2)
+        with open(template_2_path, "w") as f:
+            f.write(template_2)
+
+        # コンフィグを生成し、ビルダーに通す
+        conf_name = "config for unittest"
+        config = Config(conf_name, args_mock, contents_mock)
+        builder = ContentBuilder(str(self.template_root_path), "./", args_mock, None)
+        prepared_contents = [builder.build(content) for content in config.contents]
+
+        # コンテンツが保持するデータを取得 これらは同じ値を示すはず
+        for content in prepared_contents:
+            self.assertIsNotNone(content.extract_object)
+        self.assertEqual(prepared_contents[0].extract_object, prepared_contents[1].extract_object)
 
     def random_strings(self, length: int) -> str:
         """指定された長さのランダムな文字列を生成する
