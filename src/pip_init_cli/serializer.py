@@ -4,7 +4,7 @@
 from functools import reduce
 from typing import Any, Dict
 
-from .config import Config
+from pip_init import Config
 
 
 class ConfigSerializer:

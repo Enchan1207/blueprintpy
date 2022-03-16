@@ -7,7 +7,7 @@ from __future__ import annotations
 from abc import ABCMeta, abstractmethod
 from typing import List, Set, Type
 
-from ..argument import Argument
+from pip_init import Argument
 
 
 class ArgsHandlerBase(metaclass=ABCMeta):
