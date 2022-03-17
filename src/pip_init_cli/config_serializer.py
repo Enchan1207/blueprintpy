@@ -38,8 +38,8 @@ class ConfigSerializer:
         serialized['args'] = serialized_args
 
         # ハンドラはそのまま ただし存在しなければ追加しない
-        if config.args_handler_path is not None:
-            serialized['args_handler'] = config.args_handler_path
+        if config.args_handler_name is not None:
+            serialized['args_handler'] = config.args_handler_name
 
         # Contentも同様
         serialized_contents = [{'src': content.src, 'dest': content.dest} for content in config.contents]
