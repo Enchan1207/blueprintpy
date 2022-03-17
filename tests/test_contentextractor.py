@@ -38,7 +38,7 @@ class testContentExtractor(TestCase):
         with open(self.template_root_path / temp_bin_name, "wb") as f:
             f.write(temp_bin_content)
         temp_bin = Content(temp_bin_name, str(self.extract_root_path / temp_bin_name))
-        builder = ContentBuilder(str(self.template_root_path), str(self.extract_root_path), [])
+        builder = ContentBuilder(self.template_root_path, self.extract_root_path, [])
         temp_bin_prepared = builder.build(temp_bin)
         ContentExtractor.extract(temp_bin_prepared)
         with open(self.extract_root_path / temp_bin_name, "rb") as f:
@@ -54,7 +54,7 @@ class testContentExtractor(TestCase):
         with open(self.template_root_path / temp_template_name, "w") as f:
             f.write(temp_template_content)
         temp_template = Content(temp_template_name, str(self.extract_root_path / "extracted.txt"))
-        builder = ContentBuilder(str(self.template_root_path), str(self.extract_root_path), [arg_1])
+        builder = ContentBuilder(self.template_root_path, self.extract_root_path, [arg_1])
         temp_template_prepared = builder.build(temp_template)
         ContentExtractor.extract(temp_template_prepared)
         with open(self.extract_root_path / "extracted.txt", "r") as f:
