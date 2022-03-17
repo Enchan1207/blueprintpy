@@ -17,23 +17,23 @@ class ContentBuilder:
     """
 
     def __init__(self,
-                 template_root: str,
-                 extract_root: str,
+                 template_root: Path,
+                 extract_root: Path,
                  template_args: List[Argument],
                  template_loader: Optional[BaseLoader] = None) -> None:
         """Contentビルダーを初期化します.
 
         Args:
-            template_root (str): 読み込むテンプレートのルート
-            extract_root (str): 展開先のルート
+            template_root (Path): 読み込むテンプレートのルート
+            extract_root (Path): 展開先のルート
             template_args (List[Argument]): テンプレート引数
             template_loader (Optional[BaseLoader], optional): テンプレートローダー
         """
 
         loader = template_loader if template_loader is not None else FileSystemLoader(template_root)
         self.env = Environment(loader=loader, trim_blocks=True)
-        self.template_root = Path(template_root)
-        self.extract_root = Path(extract_root)
+        self.template_root = template_root.absolute()
+        self.extract_root = extract_root.absolute()
 
         # テンプレート引数はdictに変換
         template_parameter_dicts: List[Dict[str, Any]] = [{arg.name: arg.value} for arg in template_args]

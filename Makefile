@@ -13,7 +13,7 @@ cleanup:
 	rm -rf ./build
 	rm -rf ./**/*.egg-info
 	rm -rf ./**/*.dist-info
-	rm -rf ./**/__pycache__
+	zsh -c "rm -rf ./**/__pycache__"
 
 test:
 	python3 -m unittest discover ./tests

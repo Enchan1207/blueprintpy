@@ -2,24 +2,13 @@
 # ContentExtractorのテスト
 #
 
-import os
 import random
 import string
 import tempfile
-from functools import reduce
-from json import JSONDecoder
-from json.encoder import JSONEncoder
 from pathlib import Path
-from typing import List
 from unittest import TestCase
 
-from src.pip_init.argument import Argument
-from src.pip_init.config import Config
-from src.pip_init.content import Content
-from src.pip_init.content_builder import ContentBuilder
-from src.pip_init.content_extractor import ContentExtractor
-from src.pip_init.loader import ConfigLoader
-from src.pip_init.serializer import ConfigSerializer
+from src.pip_init import Argument, Content, ContentBuilder, ContentExtractor
 
 
 class testContentExtractor(TestCase):
@@ -49,7 +38,7 @@ class testContentExtractor(TestCase):
         with open(self.template_root_path / temp_bin_name, "wb") as f:
             f.write(temp_bin_content)
         temp_bin = Content(temp_bin_name, str(self.extract_root_path / temp_bin_name))
-        builder = ContentBuilder(str(self.template_root_path), str(self.extract_root_path), [])
+        builder = ContentBuilder(self.template_root_path, self.extract_root_path, [])
         temp_bin_prepared = builder.build(temp_bin)
         ContentExtractor.extract(temp_bin_prepared)
         with open(self.extract_root_path / temp_bin_name, "rb") as f:
@@ -65,7 +54,7 @@ class testContentExtractor(TestCase):
         with open(self.template_root_path / temp_template_name, "w") as f:
             f.write(temp_template_content)
         temp_template = Content(temp_template_name, str(self.extract_root_path / "extracted.txt"))
-        builder = ContentBuilder(str(self.template_root_path), str(self.extract_root_path), [arg_1])
+        builder = ContentBuilder(self.template_root_path, self.extract_root_path, [arg_1])
         temp_template_prepared = builder.build(temp_template)
         ContentExtractor.extract(temp_template_prepared)
         with open(self.extract_root_path / "extracted.txt", "r") as f:

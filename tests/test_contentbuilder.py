@@ -13,12 +13,9 @@ from pathlib import Path
 from typing import List
 from unittest import TestCase
 
-from src.pip_init.argument import Argument
-from src.pip_init.config import Config
-from src.pip_init.content import Content
-from src.pip_init.content_builder import ContentBuilder
-from src.pip_init.loader import ConfigLoader
-from src.pip_init.serializer import ConfigSerializer
+from src.pip_init import Argument, Config, Content, ContentBuilder
+from src.pip_init_cli.config_loader import ConfigLoader
+from src.pip_init_cli.config_serializer import ConfigSerializer
 
 
 class testContentBuilder(TestCase):
@@ -73,14 +70,14 @@ class testContentBuilder(TestCase):
         loaded_config = ConfigLoader.load(encoded)
 
         # ビルダーに通す
-        builder = ContentBuilder(self.template_root_path, "./", args_mock, None)
+        builder = ContentBuilder(self.template_root_path, Path("./"), args_mock, None)
         prepared_contents = [builder.build(content) for content in loaded_config.contents]
 
         # ビルド結果を照合
         for prepared, origin, arg in zip(prepared_contents, contents_mock, args_mock):
             # オブジェクトの状態
             self.assertEqual(prepared.source, Path(origin.src))
-            self.assertEqual(prepared.dest_path, Path(arg.value))
+            self.assertEqual(prepared.dest_path, Path(arg.value).absolute())
 
             # ファイルの中身
             with open(prepared.source) as f:
@@ -126,7 +123,7 @@ class testContentBuilder(TestCase):
         # コンフィグを生成し、ビルダーに通す
         conf_name = "config for unittest"
         config = Config(conf_name, args_mock, contents_mock)
-        builder = ContentBuilder(str(self.template_root_path), "./", args_mock, None)
+        builder = ContentBuilder(self.template_root_path, Path("./"), args_mock, None)
         prepared_contents = [builder.build(content) for content in config.contents]
 
         # コンテンツが保持するデータを取得 これらは同じ値を示すはず

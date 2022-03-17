@@ -5,9 +5,7 @@ import importlib
 from json.decoder import JSONDecoder
 from typing import Optional
 
-from .argument import Argument
-from .content import Content
-from .config import Config
+from pip_init import Argument, Config, Content
 
 
 class ConfigLoader:
