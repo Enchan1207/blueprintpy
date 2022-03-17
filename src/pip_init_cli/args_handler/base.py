@@ -15,9 +15,11 @@ class ArgsHandlerBase(metaclass=ABCMeta):
 
     Attributes:
         handlers (Set[Type[ArgsHandlerBase]]) : 基底クラスを継承したArgsHandlerのセット
+        __handler_name__ (str): 引数ハンドラを特定するための名前
     """
 
     handlers: Set[Type[ArgsHandlerBase]] = set()
+    __handler_name__: str = ""
 
     def __init_subclass__(cls) -> None:
         super().__init_subclass__()
