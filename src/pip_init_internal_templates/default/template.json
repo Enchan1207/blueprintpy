@@ -34,7 +34,7 @@
         },
         {
             "src": "__init__.py.j2",
-            "dest": "{project_name}/__init__.py"
+            "dest": "src/{project_name}/__init__.py"
         },
         {
             "src": "README.md.j2",
