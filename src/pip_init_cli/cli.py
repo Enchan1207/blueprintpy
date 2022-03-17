@@ -33,12 +33,20 @@ def main() -> int:
     parser.add_argument(
         "--template_dir", "-t",
         help="template root directory (optional)")
+    parser.add_argument(
+        "--dry_run", "-d",
+        action='store_true',
+        help="shows only which files are expanded")
 
     # パースして情報を取得
     args = parser.parse_args()
     extract_root: Path = Path(args.target).absolute()
     template_name: str = args.name
     additional_template_dir: Optional[Path] = Path(args.template_dir).absolute() if args.template_dir is not None else None
+    is_dry_run = args.dry_run
+
+    if is_dry_run:
+        print("Execute as dry-run mode.")
 
     # template_rootが指定された場合はsys.pathに追加しておく
     if additional_template_dir is not None:
@@ -88,7 +96,10 @@ def main() -> int:
 
     # 配置
     for content in prepared_contents:
-        pip_init.ContentExtractor.extract(content)
+        if not is_dry_run:
+            pip_init.ContentExtractor.extract(content)
+        else:
+            print(f"expand: {content.source} -> {content.dest_path}")
 
     # 完了
     print("Succeeded.")
