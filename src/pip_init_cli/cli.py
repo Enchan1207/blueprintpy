@@ -6,6 +6,7 @@ from logging import handlers
 import sys
 from argparse import ArgumentParser
 from pathlib import Path
+from types import ModuleType
 from typing import Optional
 
 import pip_init
@@ -48,19 +49,21 @@ def main() -> int:
         sys.path.append(str(Path.home() / ".pip_init"))
 
     # パスを解決し、テンプレートをimportする
-    #  - template_root が None である: pip_init_internal_templates.{template_name} のインポートを試みる
-    #  - template_root が None でない: pip_init_templates.{template_name} のインポートを試みる
-    if additional_template_dir is None:
-        template_import_path: str = f"pip_init_internal_templates.{template_name}"
-    else:
-        template_import_path = f"pip_init_templates.{template_name}"
-
+    # pip_init_internal_templates、pip_init_templatesでそれぞれ該当する名前のテンプレートを探す
+    template_module: Optional[ModuleType] = None
     try:
-        template_module = importlib.import_module(template_import_path)
+        template_module = importlib.import_module(f"pip_init_internal_templates.{template_name}")
     except ImportError:
-        print("\033[31;1mfailed to import template! check if the path is valid.\033[0m")
-        print(f"search path: \033[36m{template_import_path}\033[0m")
-        return 1
+        print(f"template \033[36m{template_name}\033[0m not found at inrernal template. found custom template directory...")
+
+    # どちらにもなければエラー
+    if template_module is None:
+        try:
+            template_module = importlib.import_module(f"pip_init_templates.{template_name}")
+        except ImportError:
+            print("\033[31;1mfailed to import template! check if the path is valid.\033[0m")
+            print(f"search path: \033[36mpip_init_templates.{template_name}\033[0m")
+            return 1
 
     # importしたモジュールからテンプレートの親ディレクトリを特定し、template.jsonを読み込む
     template_root = Path(template_module.__file__).parent
@@ -87,6 +90,7 @@ def main() -> int:
     for content in prepared_contents:
         pip_init.ContentExtractor.extract(content)
 
+    # 完了
     print("Succeeded.")
     return 0
 
