@@ -2,6 +2,7 @@
 # pip_init CLI
 #
 import importlib
+from logging import handlers
 import sys
 from argparse import ArgumentParser
 from pathlib import Path
@@ -67,6 +68,26 @@ def main() -> int:
         template_json = f.read()
     config = ConfigLoader.load(template_json)
 
+    # 引数ハンドラを特定する
+    args_handler_name = config.args_handler_name or "__default__"
+    args_handler_candidates = list(filter(lambda handler: handler.__handler_name__ == args_handler_name, ArgsHandlerBase.handlers))
+    if len(args_handler_candidates) != 1:
+        print("\033[31;1mcould not identify argument handler!\033[0m")
+        return 1
+    args_handler = args_handler_candidates[0]
+
+    # 引数ハンドラに渡して値をセットしてもらう
+    prepared_args = args_handler.handle_args(config.args)
+
+    # Contentをビルド
+    content_builder = pip_init.ContentBuilder(str(template_root), str(extract_root), prepared_args)
+    prepared_contents = [content_builder.build(content) for content in config.contents]
+
+    # 配置
+    for content in prepared_contents:
+        pip_init.ContentExtractor.extract(content)
+
+    print("Succeeded.")
     return 0
 
 
