@@ -21,7 +21,7 @@ packages=find:
 
 install_requires =
 {% for module_name in dependencies %}
-    module_name
+    {{module_name}}
 {% endfor %}
 
 
