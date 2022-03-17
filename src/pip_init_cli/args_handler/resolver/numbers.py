@@ -16,11 +16,20 @@ class IntResolver(Resolver):
 
     @staticmethod
     def resolve(argument: Argument) -> Argument:
-        try:
-            argument.value = int(input("> "))
-            return argument
-        except ValueError:
-            raise ValidationError(argument, f"Invalid value that cannot be processed as an integer")
+        value = input("> ")
+
+        if value != "":
+            try:
+                argument.value = int(value)
+                return argument
+            except ValueError:
+                raise ValidationError(argument, f"Invalid value that cannot be processed as an integer")
+
+        if argument.default_value is None:
+            raise ValidationError(argument, "valid value required")
+
+        argument.value = argument.default_value
+        return argument
 
 
 class FloatResolver(Resolver):
@@ -31,8 +40,17 @@ class FloatResolver(Resolver):
 
     @staticmethod
     def resolve(argument: Argument) -> Argument:
-        try:
-            argument.value = float(input("> "))
-            return argument
-        except ValueError:
-            raise ValidationError(argument, f"Invalid value that cannot be processed as an floating point number")
+        value = input("> ")
+
+        if value != "":
+            try:
+                argument.value = float(value)
+                return argument
+            except ValueError:
+                raise ValidationError(argument, f"Invalid value that cannot be processed as an integer")
+
+        if argument.default_value is None:
+            raise ValidationError(argument, "valid value required")
+
+        argument.value = argument.default_value
+        return argument

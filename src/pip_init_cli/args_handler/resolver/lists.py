@@ -17,10 +17,13 @@ class ArrayResolver(Resolver):
         print("Entered 'list mode'. ^D (Ctrl+D) to exit.")
         while True:
             try:
-                value_buffer.append(input("> "))
+                value = input("> ")
             except EOFError:
                 print()
                 break
+
+            if value != "":
+                value_buffer.append(value)
 
             print(f"Current: {','.join(value_buffer)}")
 
