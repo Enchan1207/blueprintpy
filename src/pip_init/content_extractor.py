@@ -33,6 +33,9 @@ class ContentExtractor:
         if content.source is not None and not content.source.is_absolute():
             raise ValueError("Invalid argument")
 
+        # 書き込み先パスに到達できるよう、親ディレクトリまでは作成しておく
+        content.dest_path.parent.mkdir(parents=True, exist_ok=True)
+
         # 書き込み
         if content.source is not None:
             copyfile(content.source, content.dest_path)
