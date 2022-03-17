@@ -80,7 +80,7 @@ def main() -> int:
     prepared_args = args_handler.handle_args(config.args)
 
     # Contentをビルド
-    content_builder = pip_init.ContentBuilder(str(template_root), str(extract_root), prepared_args)
+    content_builder = pip_init.ContentBuilder(template_root, extract_root, prepared_args)
     prepared_contents = [content_builder.build(content) for content in config.contents]
 
     # 配置
