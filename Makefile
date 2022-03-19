@@ -16,21 +16,21 @@ cleanup:
 	zsh -c "rm -rf ./**/__pycache__"
 
 init_docs:
-	rm -rf docs
-	mkdir docs
+	rm -rf doc_sources docs
+	mkdir doc_sources docs
 	sphinx-quickstart -q --no-batchfile \
 		-p pip_init \
 		-a Enchan1207 \
 		-r v1.0.0 \
 		-l ja \
 		--extensions="sphinx.ext.autodoc,sphinx.ext.napoleon" \
-		./docs
+		./doc_sources
 
 create_docs:
-	sphinx-apidoc -e -f -o ./docs .
+	sphinx-apidoc -e -f -o ./doc_sources .
 
 build_docs:
-	sphinx-build ./docs/ ./docs/_build/
+	sphinx-build ./doc_sources/ ./docs/
 
 test:
 	python3 -m unittest discover ./tests
