@@ -10,7 +10,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('../src'))
 
 
 # -- プロジェクト情報
@@ -58,6 +58,5 @@ html_static_path = [
 
 # -- 拡張機能構成
 
-# autoclass
+# autodoc
 autoclass_content = 'both'  # __init__ のdocstringを含める
-autodoc_mock_imports = ["tests", "setup"]  # モジュールが存在しない場合のモックアップ
