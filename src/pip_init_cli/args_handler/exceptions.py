@@ -1,12 +1,14 @@
 #
 # 引数ハンドリング例外
 #
+"""引数の処理過程で発生する例外
+"""
 
 from pip_init import Argument
 
 
 class ArgumentHandlingError(Exception):
-    """引数の処理過程で発生する例外の基底クラス
+    """(基底クラス)
     """
 
 

@@ -1,18 +1,34 @@
 #
 # 単純なリスト
 #
+"""
+リスト形式のデータを代入するresolver
+"""
+
 from typing import List
-from .base import Resolver
+
 from pip_init import Argument
+
+from .base import Resolver
 
 
 class ArrayResolver(Resolver):
-    """単純なリスト
+    """__resolver_type__: :code:`array`
     """
-    __argtype__ = "array"
+
+    __resolver_type__ = "array"
 
     @staticmethod
     def resolve(argument: Argument) -> Argument:
+        """
+        リスト形式のデータについて、コンソールからの入力を元に値を生成します.
+        入力するたびに内部リストに値が蓄積され、 :code:`EOF` を送信することで値が確定されます.
+
+        Note:
+            現在のバージョンでは **デフォルト値を考慮した動作をしない** ことに注意してください.
+            何らかの値が必ず要求されます.
+        """
+
         value_buffer: List[str] = []
         print("Entered 'list mode'. ^D (Ctrl+D) to exit.")
         while True:

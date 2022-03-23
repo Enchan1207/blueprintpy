@@ -13,7 +13,7 @@ from .prepared_content import PreparedContent
 
 
 class ContentBuilder:
-    """Contentビルダー
+    """Contentビルダ
     """
 
     def __init__(self,
@@ -21,13 +21,15 @@ class ContentBuilder:
                  extract_root: Path,
                  template_args: List[Argument],
                  template_loader: Optional[BaseLoader] = None) -> None:
-        """Contentビルダーを初期化します.
-
+        """
         Args:
             template_root (Path): 読み込むテンプレートのルート
             extract_root (Path): 展開先のルート
             template_args (List[Argument]): テンプレート引数
             template_loader (Optional[BaseLoader], optional): テンプレートローダー
+
+        Note:
+            :code:`template_root` , :code:`extract_root` は、インスタンス初期化時に絶対パスに変換されます.
         """
 
         loader = template_loader if template_loader is not None else FileSystemLoader(template_root)

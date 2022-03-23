@@ -9,7 +9,7 @@ from .content import Content
 
 
 class Config:
-    """テンプレート構成
+    """パッケージテンプレートの構成.
     """
 
     def __init__(self,
@@ -17,13 +17,17 @@ class Config:
                  args: List[Argument],
                  contents: List[Content],
                  args_handler_name: Optional[str] = None) -> None:
-        """テンプレート構成を初期化します.
-
+        """
         Args:
             name (str): テンプレート名
             args (List[Argument]): テンプレート引数リスト
             contents (List[Content]): 展開されるファイルコンテンツのリスト
             args_handler_name (Optional[str], optional): 引数ハンドラの名前
+
+        Note:
+            :code:`args_handler_name` パラメータには、引数ハンドラ(:mod:`pip_init_cli.args_handler`)の
+            属性 :code:`__handler_name__` の値を指定してください.
+            指定がなかった場合は、pip_init_cliが自動でデフォルトのハンドラを呼び出します.
         """
         self.name = name
         self.args = args

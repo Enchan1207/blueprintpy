@@ -2,6 +2,10 @@
 # デフォルト引数ハンドラ
 #
 
+"""
+引数ハンドラのデフォルト実装
+"""
+
 from typing import List, Optional, Type
 
 from pip_init import Argument
@@ -13,10 +17,19 @@ from .resolver import Resolver
 
 class DefaultArgsHandler(ArgsHandlerBase):
 
+    """ (プロパティ :code:`__handler_name__` の値は :code:`__default__` です.)
+    """
+
     __handler_name__ = "__default__"
 
     @staticmethod
     def handle_args(args: List[Argument]) -> List[Argument]:
+        """
+        各テンプレート引数について、プロパティ :code:`argtype` の値に対応する名称のレゾルバを探します.
+        次に各レゾルバに引数オブジェクトを投入し、処理結果を プロパティ :code:`value` に代入して返します.
+
+        対応するレゾルバが存在しない場合は :code:`RuntimeError`, レゾルバの処理が失敗した場合は :class:`.exceptions.ValidationError` が送出されます.
+        """
         prepared_args: List[Argument] = []
 
         # 各引数について
@@ -43,5 +56,5 @@ class DefaultArgsHandler(ArgsHandlerBase):
 
     @staticmethod
     def __search_resolver(argtype: str) -> Optional[Type[Resolver]]:
-        resolver_candidates = list(filter(lambda resolver: resolver.__argtype__ == argtype, Resolver.resolvers))
+        resolver_candidates = list(filter(lambda resolver: resolver.__resolver_type__ == argtype, Resolver.resolvers))
         return resolver_candidates[0] if len(resolver_candidates) == 1 else None

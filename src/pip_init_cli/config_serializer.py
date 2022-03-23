@@ -13,7 +13,7 @@ class ConfigSerializer:
 
     @staticmethod
     def serialize(config: Config) -> Dict[str, Any]:
-        """テンプレート構成オブジェクトをシリアライズし、結果を返します.
+        """テンプレート構成オブジェクトをシリアライズし、辞書形式に変換します.
 
         Args:
             config (Config): シリアライズする構成オブジェクト

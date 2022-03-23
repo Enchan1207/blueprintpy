@@ -2,6 +2,10 @@
 # 引数ハンドラ基底クラス
 #
 
+"""
+テンプレート引数ハンドラの基底クラス
+"""
+
 from __future__ import annotations
 
 from abc import ABCMeta, abstractmethod
@@ -11,8 +15,7 @@ from pip_init import Argument
 
 
 class ArgsHandlerBase(metaclass=ABCMeta):
-    """テンプレート引数ハンドラ
-
+    """
     Attributes:
         handlers (Set[Type[ArgsHandlerBase]]) : 基底クラスを継承したArgsHandlerのセット
         __handler_name__ (str): 引数ハンドラを特定するための名前

@@ -1,6 +1,10 @@
 #
 # 単純な文字列
 #
+"""
+文字列形式のデータを代入するresolver
+"""
+
 from pip_init import Argument
 
 from ..exceptions import ValidationError
@@ -8,13 +12,17 @@ from .base import Resolver
 
 
 class StringResolver(Resolver):
-    """単純な文字列
+    """__resolver_type__: :code:`str`
     """
 
-    __argtype__ = "str"
+    __resolver_type__ = "str"
 
     @staticmethod
     def resolve(argument: Argument) -> Argument:
+        """
+        文字列形式のデータについて、コンソールからの入力を元に値を生成します.
+        """
+
         value = input("> ")
         if value != "":
             argument.value = value

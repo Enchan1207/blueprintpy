@@ -7,22 +7,21 @@ from typing import Optional
 
 
 class Content:
-    """展開されるファイルコンテンツ
+    """パッケージテンプレートに含まれるファイル.
     """
 
     def __init__(self,
                  src: str,
                  dest: str,
                  use_template_engine: Optional[bool] = None) -> None:
-        """ファイルコンテンツを初期化します.
-
+        """
         Args:
             src (str): オリジナル相対パス
             dest (str): コピー先相対パス
             use_template_engine (Optional[bool], optional): テンプレートエンジンを使用するか
 
         Note:
-            use_template_engineにNoneが渡された場合, 拡張子が `.j2` または `.jinja2` のファイルではTrue、
+            :code:`use_template_engine` にNoneが渡された場合, 拡張子が :code:`.j2` または :code:`.jinja2` のファイルではTrue、
             それ以外のファイルではFalseがセットされます.
         """
 

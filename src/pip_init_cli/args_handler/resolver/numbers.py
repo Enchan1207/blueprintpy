@@ -1,6 +1,10 @@
 #
 # 整数・浮動小数点数
 #
+"""
+数値形式のデータを代入するresolver
+"""
+
 from pip_init import Argument
 
 from ..exceptions import ValidationError
@@ -9,13 +13,16 @@ from .base import Resolver
 
 
 class IntResolver(Resolver):
-    """整数
+    """__resolver_type__: :code:`int`
     """
 
-    __argtype__ = "int"
+    __resolver_type__ = "int"
 
     @staticmethod
     def resolve(argument: Argument) -> Argument:
+        """
+        整数形式のデータについて、コンソールからの入力を元に値を生成します.
+        """
         value = input("> ")
 
         if value != "":
@@ -33,13 +40,17 @@ class IntResolver(Resolver):
 
 
 class FloatResolver(Resolver):
-    """浮動小数点数
+    """__resolver_type__: :code:`float`
     """
 
     __argtype__ = "float"
 
     @staticmethod
     def resolve(argument: Argument) -> Argument:
+        """
+        浮動小数点形式のデータについて、コンソールからの入力を元に値を生成します.
+        """
+
         value = input("> ")
 
         if value != "":

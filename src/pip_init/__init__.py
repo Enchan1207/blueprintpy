@@ -2,6 +2,10 @@
 # Python package template initialzer
 #
 
+"""
+pip_init コアパッケージ
+"""
+
 from .argument import Argument as Argument
 from .config import Config as Config
 from .content import Content as Content
