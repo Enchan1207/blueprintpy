@@ -19,8 +19,9 @@ cleanup:
 	zsh -c "rm -rf ./**/__pycache__"
 
 init_docs:
-	rm -rf doc_sources docs
-	mkdir doc_sources docs
+	rm -rf ${document_source_root} ${document_output_root}
+	mkdir ${document_source_root} ${document_output_root}
+	touch ${document_source_root}/.nojekyll
 	sphinx-quickstart -q --no-batchfile \
 		-p pip_init \
 		-a Enchan1207 \
