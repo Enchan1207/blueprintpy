@@ -8,12 +8,12 @@ from .prepared_content import PreparedContent
 
 
 class ContentExtractor:
-    """PreparedContentを適切な場所に展開する
+    """PreparedContentの展開
     """
 
     @staticmethod
     def extract(content: PreparedContent):
-        """引数に渡されたパラメータ展開済みのコンテンツを適切な場所に配置します.
+        """引数に渡されたPreparedContentを適切な場所に配置します.
 
         Args:
             content (PreparedContent): 配置するコンテンツ
@@ -23,8 +23,9 @@ class ContentExtractor:
 
         Note:
             コンテンツの各パスは絶対パスである必要があります.
-            また、Extractorは与えられたコンテンツのパスを検証しないことに注意してください.
-            (パスのバリデーションは引数ハンドリングプロセスで行うことを推奨します)
+
+            また、:code:`content` のパスは検証されません.
+            内容のバリデーションは引数ハンドリングプロセスで行うことを推奨します.
         """
 
         # 読み込み元、配置先が絶対パスであることを確認する

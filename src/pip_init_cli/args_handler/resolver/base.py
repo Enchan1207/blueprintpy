@@ -1,6 +1,10 @@
 #
-# 引数レゾルバの規定クラス
+# 引数レゾルバの基底クラス
 #
+
+"""
+引数レゾルバの基底クラス
+"""
 
 from __future__ import annotations
 from abc import ABCMeta, abstractmethod
@@ -10,11 +14,14 @@ from pip_init import Argument
 
 
 class Resolver(metaclass=ABCMeta):
-    """引数レゾルバ
+    """
+    Attributes:
+        resolvers (Set[Type[Resolver]]) : 基底クラスを継承したResolverのセット
+        __resolver_type__ (str): 引数レゾルバを特定するための名前
     """
 
     resolvers: Set[Type[Resolver]] = set()
-    __argtype__: str = ""
+    __resolver_type__: str = ""
 
     def __init_subclass__(cls) -> None:
         super.__init_subclass__()

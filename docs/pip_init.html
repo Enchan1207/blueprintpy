@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pip_init &mdash; pip_init v1.0.0 ドキュメント</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" />
+    <link rel="next" title="pip_init_cli" href="pip_init_cli.html" />
+    <link rel="prev" title="パッケージ リファレンス" href="package_reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> pip_init
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="easy_usage.html">基本的な使用法</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="package_reference.html">パッケージ リファレンス</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pip_init</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">モジュール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pip_init.argument">pip_init.argument</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pip_init.config">pip_init.config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pip_init.content">pip_init.content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pip_init.content_builder">pip_init.content_builder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pip_init.content_extractor">pip_init.content_extractor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pip_init.prepared_content">pip_init.prepared_content</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pip_init_cli.html">pip_init_cli</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pip_init</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="package_reference.html">パッケージ リファレンス</a> &raquo;</li>
+        
+      <li>pip_init</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/pip_init.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pip_init">
+<span id="pip-init"></span><h1>pip_init<a class="headerlink" href="#module-pip_init" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>pip_init コアパッケージ</p>
+<div class="section" id="id1">
+<h2>モジュール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="module-pip_init.argument">
+<span id="pip-init-argument"></span><h2>pip_init.argument<a class="headerlink" href="#module-pip_init.argument" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pip_init.argument.Argument">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pip_init.argument.</span></span><span class="sig-name descname"><span class="pre">Argument</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">argtype</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_init.argument.Argument" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>パッケージテンプレート内で展開される引数.</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- 引数名</p></li>
+<li><p><strong>description</strong> (<em>str</em>) -- 引数の説明</p></li>
+<li><p><strong>argtype</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) -- 引数タイプ</p></li>
+<li><p><strong>default_value</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) -- デフォルト値</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="code docutils literal notranslate"><span class="pre">argtype</span></code> パラメータは引数の型を示します.
+pip_init コアモジュールでは利用されませんが、CLIツールのデフォルト引数ハンドラでは対応する名称の
+レゾルバ (<a class="reference internal" href="pip_init_cli.args_handler.resolver.html#module-pip_init_cli.args_handler.resolver" title="pip_init_cli.args_handler.resolver"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip_init_cli.args_handler.resolver</span></code></a>) を呼び出そうとします.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pip_init.config">
+<span id="pip-init-config"></span><h2>pip_init.config<a class="headerlink" href="#module-pip_init.config" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pip_init.config.Config">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pip_init.config.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pip_init.argument.Argument" title="pip_init.argument.Argument"><span class="pre">pip_init.argument.Argument</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contents</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pip_init.content.Content" title="pip_init.content.Content"><span class="pre">pip_init.content.Content</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">args_handler_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_init.config.Config" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>パッケージテンプレートの構成.</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) -- テンプレート名</p></li>
+<li><p><strong>args</strong> (<em>List</em><em>[</em><a class="reference internal" href="#pip_init.argument.Argument" title="pip_init.argument.Argument"><em>Argument</em></a><em>]</em>) -- テンプレート引数リスト</p></li>
+<li><p><strong>contents</strong> (<em>List</em><em>[</em><a class="reference internal" href="#pip_init.content.Content" title="pip_init.content.Content"><em>Content</em></a><em>]</em>) -- 展開されるファイルコンテンツのリスト</p></li>
+<li><p><strong>args_handler_name</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em><em>, </em><em>optional</em>) -- 引数ハンドラの名前</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="code docutils literal notranslate"><span class="pre">args_handler_name</span></code> パラメータには、引数ハンドラ(<a class="reference internal" href="pip_init_cli.args_handler.html#module-pip_init_cli.args_handler" title="pip_init_cli.args_handler"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pip_init_cli.args_handler</span></code></a>)の
+属性 <code class="code docutils literal notranslate"><span class="pre">__handler_name__</span></code> の値を指定してください.
+指定がなかった場合は、pip_init_cliが自動でデフォルトのハンドラを呼び出します.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pip_init.content">
+<span id="pip-init-content"></span><h2>pip_init.content<a class="headerlink" href="#module-pip_init.content" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pip_init.content.Content">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pip_init.content.</span></span><span class="sig-name descname"><span class="pre">Content</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dest</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_template_engine</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_init.content.Content" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>パッケージテンプレートに含まれるファイル.</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>str</em>) -- オリジナル相対パス</p></li>
+<li><p><strong>dest</strong> (<em>str</em>) -- コピー先相対パス</p></li>
+<li><p><strong>use_template_engine</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em><em>, </em><em>optional</em>) -- テンプレートエンジンを使用するか</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="code docutils literal notranslate"><span class="pre">use_template_engine</span></code> にNoneが渡された場合, 拡張子が <code class="code docutils literal notranslate"><span class="pre">.j2</span></code> または <code class="code docutils literal notranslate"><span class="pre">.jinja2</span></code> のファイルではTrue、
+それ以外のファイルではFalseがセットされます.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pip_init.content_builder">
+<span id="pip-init-content-builder"></span><h2>pip_init.content_builder<a class="headerlink" href="#module-pip_init.content_builder" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pip_init.content_builder.ContentBuilder">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pip_init.content_builder.</span></span><span class="sig-name descname"><span class="pre">ContentBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_root</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template_args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#pip_init.argument.Argument" title="pip_init.argument.Argument"><span class="pre">pip_init.argument.Argument</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">template_loader</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">jinja2.loaders.BaseLoader</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_init.content_builder.ContentBuilder" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Contentビルダ</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>template_root</strong> (<em>Path</em>) -- 読み込むテンプレートのルート</p></li>
+<li><p><strong>extract_root</strong> (<em>Path</em>) -- 展開先のルート</p></li>
+<li><p><strong>template_args</strong> (<em>List</em><em>[</em><a class="reference internal" href="#pip_init.argument.Argument" title="pip_init.argument.Argument"><em>Argument</em></a><em>]</em>) -- テンプレート引数</p></li>
+<li><p><strong>template_loader</strong> (<em>Optional</em><em>[</em><em>BaseLoader</em><em>]</em><em>, </em><em>optional</em>) -- テンプレートローダー</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="code docutils literal notranslate"><span class="pre">template_root</span></code> , <code class="code docutils literal notranslate"><span class="pre">extract_root</span></code> は、インスタンス初期化時に絶対パスに変換されます.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="pip_init.content_builder.ContentBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#pip_init.content.Content" title="pip_init.content.Content"><span class="pre">pip_init.content.Content</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#pip_init.prepared_content.PreparedContent" title="pip_init.prepared_content.PreparedContent"><span class="pre">pip_init.prepared_content.PreparedContent</span></a></span></span><a class="headerlink" href="#pip_init.content_builder.ContentBuilder.build" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>引数に与えられたContentオブジェクトを読み込んで処理し、展開可能なContentオブジェクトを生成します.</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><p><strong>content</strong> (<a class="reference internal" href="#pip_init.content.Content" title="pip_init.content.Content"><em>Content</em></a>) -- 変換元のContent</p>
+</dd>
+<dt class="field-even">戻り値</dt>
+<dd class="field-even"><p>処理結果</p>
+</dd>
+<dt class="field-odd">戻り値の型</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#pip_init.prepared_content.PreparedContent" title="pip_init.prepared_content.PreparedContent">PreparedContent</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pip_init.content_extractor">
+<span id="pip-init-content-extractor"></span><h2>pip_init.content_extractor<a class="headerlink" href="#module-pip_init.content_extractor" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pip_init.content_extractor.ContentExtractor">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pip_init.content_extractor.</span></span><span class="sig-name descname"><span class="pre">ContentExtractor</span></span><a class="headerlink" href="#pip_init.content_extractor.ContentExtractor" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>PreparedContentの展開</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pip_init.content_extractor.ContentExtractor.extract">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="#pip_init.prepared_content.PreparedContent" title="pip_init.prepared_content.PreparedContent"><span class="pre">pip_init.prepared_content.PreparedContent</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_init.content_extractor.ContentExtractor.extract" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>引数に渡されたPreparedContentを適切な場所に配置します.</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><p><strong>content</strong> (<a class="reference internal" href="#pip_init.prepared_content.PreparedContent" title="pip_init.prepared_content.PreparedContent"><em>PreparedContent</em></a>) -- 配置するコンテンツ</p>
+</dd>
+<dt class="field-even">例外</dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- コンテンツのパスが不正であるか、コンテンツの指すオブジェクトが不正だった場合</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>コンテンツの各パスは絶対パスである必要があります.</p>
+<p>また、<code class="code docutils literal notranslate"><span class="pre">content</span></code> のパスは検証されません.
+内容のバリデーションは引数ハンドリングプロセスで行うことを推奨します.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pip_init.prepared_content">
+<span id="pip-init-prepared-content"></span><h2>pip_init.prepared_content<a class="headerlink" href="#module-pip_init.prepared_content" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pip_init.prepared_content.PreparedContent">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pip_init.prepared_content.</span></span><span class="sig-name descname"><span class="pre">PreparedContent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_path</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pathlib.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">pathlib.Path</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_object</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pip_init.prepared_content.PreparedContent" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>展開可能なContent</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dest_path</strong> (<em>Path</em>) -- 展開先の絶対パス</p></li>
+<li><p><strong>source</strong> (<em>Optional</em><em>[</em><em>Path</em><em>]</em><em>, </em><em>optional</em>) -- 展開するファイルの絶対パス</p></li>
+<li><p><strong>extract_object</strong> (<em>Optional</em><em>[</em><em>bytes</em><em>]</em><em>, </em><em>optional</em>) -- 展開するオブジェクトのバイト列</p></li>
+</ul>
+</dd>
+<dt class="field-even">例外</dt>
+<dd class="field-even"><p><strong>ValueError</strong> -- 展開するべきコンテンツが指定されなかった場合</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="code docutils literal notranslate"><span class="pre">source</span></code>, <code class="code docutils literal notranslate"><span class="pre">extract_object</span></code> のいずれかに有効な値が入力されている必要があります.</p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pip_init_cli.html" class="btn btn-neutral float-right" title="pip_init_cli" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="package_reference.html" class="btn btn-neutral float-left" title="パッケージ リファレンス" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Enchan1207.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,6 +1,10 @@
 #
 # pip_init CLI
 #
+"""
+pip_init CLIツールのメインモジュール
+"""
+
 import importlib
 from logging import handlers
 import sys
@@ -16,6 +20,11 @@ from pip_init_cli.config_loader import ConfigLoader
 
 
 def main() -> int:
+    """CLIとして起動した際に呼ばれる関数.コマンドライン引数を処理し、テンプレート展開処理を実行します.
+
+    Returns:
+        int: 終了コード
+    """
     # コマンドライン引数の設定
     parser = ArgumentParser(
         prog='pip_init',
