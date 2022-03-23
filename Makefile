@@ -2,6 +2,9 @@
 #
 #
 
+document_source_root="./doc_sources"
+document_output_root="./docs/"
+
 .PHONY: dummy cleanup test init_docs create_docs build_docs
 
 dummy:
@@ -24,13 +27,20 @@ init_docs:
 		-r v1.0.0 \
 		-l ja \
 		--extensions="sphinx.ext.autodoc,sphinx.ext.napoleon" \
-		./doc_sources
+		${document_source_root}
 
 create_docs:
-	sphinx-apidoc -e -f -o ./doc_sources .
+	@sphinx-apidoc \
+		--force --module-first -d 1 \
+		--templatedir="${document_source_root}/_templates" \
+		-o ${document_source_root} \
+		./src/ \
+		"**/pip_init_internal_templates"
+	@rm ${document_source_root}/modules.rst
+	
 
 build_docs:
-	sphinx-build ./doc_sources/ ./docs/
+	sphinx-build ${document_source_root}/ ${document_output_root}
 
 test:
 	python3 -m unittest discover ./tests
