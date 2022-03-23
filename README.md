@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/Enchan1207/pip_init/master/banner.png" width="100%" alt="pip_init banner"> 
+# pip-init
 
 [![Unittest](https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml/badge.svg)](https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml)
 [![version](https://img.shields.io/github/v/release/Enchan1207/pip_init)](https://github.com/Enchan1207/pip_init/releases)
@@ -9,14 +9,14 @@ Python パッケージテンプレート展開ユーティリティ
 
 ## Description
 
-**pip_init**は、Pythonに `swift init` や `npm init` のような パッケージ初期化CLIを提供するユーティリティです。
+**pip-init**は、Pythonに `swift init` や `npm init` のような パッケージ初期化CLIを提供するユーティリティです。
 
 ## Installation
 
-PyPIよりパッケージをインストールできます。インストールの際、同時にCLIツール`pip_init`がインストールされます。
+PyPIよりパッケージをインストールできます。インストールの際、同時にCLIツール`pip-init`がインストールされます。
 
 ```
-pip install pip_init
+pip install pip-init
 ```
 
 
