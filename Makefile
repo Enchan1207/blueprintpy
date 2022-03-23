@@ -16,7 +16,8 @@ cleanup:
 	rm -rf ./build
 	rm -rf ./**/*.egg-info
 	rm -rf ./**/*.dist-info
-	zsh -c "rm -rf ./**/__pycache__"
+	rm -rf ./dist
+	zsh -c "rm -rf ./**/__pycache__"; exit 0
 
 init_docs:
 	rm -rf ${document_source_root} ${document_output_root}
@@ -38,10 +39,13 @@ create_docs:
 		./src/ \
 		"**/pip_init_internal_templates"
 	@rm ${document_source_root}/modules.rst
-	
+
 
 build_docs:
 	sphinx-build ${document_source_root}/ ${document_output_root}
+
+release_test:
+	python3 -m build && python3 -m twine upload --repository testpypi dist/*
 
 test:
 	python3 -m unittest discover ./tests
