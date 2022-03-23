@@ -1,6 +1,14 @@
 pip_init
 ==========
 
+.. image:: https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml
+    :alt: Unittest status
+
+
+.. image::  https://img.shields.io/badge/version-1.0.0-blue
+    :alt: version info
+
 **pip_init** は、Pythonに :code:`npm init` や :code:`swift init` のようなパッケージ構成CLIを提供するライブラリです。
 
 デフォルトでは pip用に最適化されたテンプレートが用意されていますが、必要に応じて自由にカスタマイズできます。
