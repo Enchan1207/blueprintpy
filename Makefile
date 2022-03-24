@@ -12,12 +12,7 @@ dummy:
 	@echo "try make {cleanup|test}"
 
 cleanup:
-	@echo "Cleaning..."
-	rm -rf ./build
-	rm -rf ./**/*.egg-info
-	rm -rf ./**/*.dist-info
-	rm -rf ./dist
-	zsh -c "rm -rf ./**/__pycache__"; exit 0
+	@./cleanup.sh
 
 init_docs:
 	rm -rf ${document_source_root} ${document_output_root}
