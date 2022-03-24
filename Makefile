@@ -19,7 +19,7 @@ init_docs:
 	mkdir ${document_source_root} ${document_output_root}
 	touch ${document_source_root}/.nojekyll
 	sphinx-quickstart -q --no-batchfile \
-		-p pip_init \
+		-p blueprintpy \
 		-a Enchan1207 \
 		-r v1.0.0 \
 		-l ja \
