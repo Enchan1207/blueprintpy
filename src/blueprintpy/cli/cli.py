@@ -59,26 +59,26 @@ def main() -> int:
     # template_rootが指定された場合はsys.pathに追加しておく
     if additional_template_dir is not None:
         sys.path.append(str(additional_template_dir))
-    # そうでなければ ~/.pip_init/をsys.pathに追加する
+    # そうでなければ ~/.blueprintpy/をsys.pathに追加する
     # このディレクトリは存在してもしなくてもよい
     else:
-        sys.path.append(str(Path.home() / ".pip_init"))
+        sys.path.append(str(Path.home() / ".blueprintpy"))
 
     # パスを解決し、テンプレートをimportする
-    # pip_init_internal_templates、pip_init_templatesでそれぞれ該当する名前のテンプレートを探す
+    # blueprintpy.internal_templates、blueprintpy_templatesでそれぞれ該当する名前のテンプレートを探す
     template_module: Optional[ModuleType] = None
     try:
-        template_module = importlib.import_module(f"pip_init_internal_templates.{template_name}")
+        template_module = importlib.import_module(f"blueprintpy.internal_templates.{template_name}")
     except ImportError:
         print(f"template \033[36m{template_name}\033[0m not found at inrernal template. found custom template directory...")
 
     # どちらにもなければエラー
     if template_module is None:
         try:
-            template_module = importlib.import_module(f"pip_init_templates.{template_name}")
+            template_module = importlib.import_module(f"blueprintpy_templates.{template_name}")
         except ImportError:
             print("\033[31;1mfailed to import template! check if the path is valid.\033[0m")
-            print(f"search path: \033[36mpip_init_templates.{template_name}\033[0m")
+            print(f"search path: \033[36mblueprintpy_templates.{template_name}\033[0m")
             return 1
 
     # importしたモジュールからテンプレートの親ディレクトリを特定し、template.jsonを読み込む
