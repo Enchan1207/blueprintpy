@@ -1,3 +1,3 @@
 #
-# pip_init テンプレートルート
+# blueprintpy テンプレートルート
 #

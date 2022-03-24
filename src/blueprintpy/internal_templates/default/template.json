@@ -1,5 +1,5 @@
 {
-    "name": "pip_init_default",
+    "name": "blueprintpy_default",
     "args": [
         {
             "name": "project_name",

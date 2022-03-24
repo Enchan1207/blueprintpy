@@ -3,7 +3,7 @@
 #
 
 """
-テンプレート引数群 (:mod:`pip_init.argument` のリスト) をハンドルするパッケージ.
+テンプレート引数群 (:mod:`blueprintpy.core.argument` のリスト) をハンドルするパッケージ.
 """
 
 from .base import ArgsHandlerBase

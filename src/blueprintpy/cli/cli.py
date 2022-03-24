@@ -1,8 +1,8 @@
 #
-# pip_init CLI
+# blueprintpy CLI
 #
 """
-pip_init CLIツールのメインモジュール
+blueprintpy CLIツールのメインモジュール
 """
 
 import importlib
@@ -26,7 +26,7 @@ def main() -> int:
     """
     # コマンドライン引数の設定
     parser = ArgumentParser(
-        prog='pip_init',
+        prog='blueprint',
         usage="%(prog)s [target] [--name name_of_template] [--template_dir path/to/template]",
         description="Python package template extractor")
     parser.add_argument(

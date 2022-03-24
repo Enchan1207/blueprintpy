@@ -3,7 +3,7 @@
 #
 
 """
-pip_init コアパッケージ
+blueprintpy コアパッケージ
 """
 
 from .argument import Argument as Argument

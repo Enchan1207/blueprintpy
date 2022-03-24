@@ -1,7 +1,7 @@
 #
-# pip_init CLI
+# blueprintpy CLI
 #
 
 """
-pip_init CLIツール
+blueprintpy CLIツール
 """

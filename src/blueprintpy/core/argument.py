@@ -23,8 +23,8 @@ class Argument:
 
         Note:
             :code:`argtype` パラメータは引数の型を示します.
-            pip_init コアモジュールでは利用されませんが、CLIツールのデフォルト引数ハンドラでは対応する名称の
-            レゾルバ (:mod:`pip_init_cli.args_handler.resolver`) を呼び出そうとします.
+            blueprintpy コアモジュールでは利用されませんが、CLIツールのデフォルト引数ハンドラでは対応する名称の
+            レゾルバ (:mod:`blueprintpy.cli.args_handler.resolver`) を呼び出そうとします.
         """
 
         self.name = name

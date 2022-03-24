@@ -16,7 +16,7 @@ class testTemplateConfig(TestCase):
 
         config_json_str = """
         {
-            "name": "pip_init_basic",
+            "name": "basic",
             "args": [
                 {
                     "name": "project_name",
