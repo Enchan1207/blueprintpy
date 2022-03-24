@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.abspath('../src'))
 
 # -- プロジェクト情報
 
-project = 'pip_init'
+project = 'blueprintpy'
 copyright = '2022, Enchan1207'
 author = 'Enchan1207'
 
