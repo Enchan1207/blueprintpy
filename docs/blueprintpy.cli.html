@@ -179,6 +179,21 @@
   <div class="section" id="module-blueprintpy.cli">
 <span id="blueprintpy-cli"></span><h1>blueprintpy.cli<a class="headerlink" href="#module-blueprintpy.cli" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>blueprintpy CLIツール</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blueprintpy.cli.blueprint">
+<span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.</span></span><span class="sig-name descname"><span class="pre">blueprint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#blueprintpy.cli.blueprint" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>コマンド <code class="code docutils literal notranslate"><span class="pre">blueprint</span></code> を提供する関数. KeyboardInterrupt (<code class="code docutils literal notranslate"><span class="pre">^C</span></code>) のみがこの関数でハンドルされ,
+それ以外の処理は 関数 <a class="reference internal" href="#blueprintpy.cli.cli.main" title="blueprintpy.cli.cli.main"><code class="xref py py-func docutils literal notranslate"><span class="pre">cli.main()</span></code></a> が担当しています.</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値</dt>
+<dd class="field-odd"><p>終了コード</p>
+</dd>
+<dt class="field-even">戻り値の型</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
 <div class="section" id="id1">
 <h2>サブパッケージ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="toctree-wrapper compound">
@@ -196,7 +211,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="blueprintpy.cli.cli.main">
 <span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.cli.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#blueprintpy.cli.cli.main" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>CLIとして起動した際に呼ばれる関数.コマンドライン引数を処理し、テンプレート展開処理を実行します.</p>
+<dd><p>コマンド <code class="code docutils literal notranslate"><span class="pre">blueprint</span></code> の実装.コマンドライン引数を処理し、テンプレート展開処理を実行します.</p>
 <dl class="field-list simple">
 <dt class="field-odd">戻り値</dt>
 <dd class="field-odd"><p>終了コード</p>

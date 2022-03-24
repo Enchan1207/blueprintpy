@@ -19,7 +19,7 @@ from .config_loader import ConfigLoader
 
 
 def main() -> int:
-    """CLIとして起動した際に呼ばれる関数.コマンドライン引数を処理し、テンプレート展開処理を実行します.
+    """コマンド :code:`blueprint` の実装.コマンドライン引数を処理し、テンプレート展開処理を実行します.
 
     Returns:
         int: 終了コード
