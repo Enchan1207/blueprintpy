@@ -1,4 +1,8 @@
-基本的な使用法
+基本的な使い方
 =================
 
-Under construction...
+.. toctree::
+   :maxdepth: 1
+
+   extract_default
+   use_custom_template
