@@ -64,6 +64,6 @@ autoclass_content = 'both'  # __init__ のdocstringを含める
 html_context = {
     'display_github': True,
     'github_user': 'Enchan1207',
-    'github_repo': 'pip_init',
+    'github_repo': 'blueprintpy',
     'github_version': 'master/doc_sources/',
 }
