@@ -1,7 +1,7 @@
 # blueprintpy
 
-[![Unittest](https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml/badge.svg)](https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml)
-[![version](https://img.shields.io/github/v/release/Enchan1207/pip_init)](https://github.com/Enchan1207/pip_init/releases)
+[![Unittest](https://github.com/Enchan1207/blueprintpy/actions/workflows/ci.yml/badge.svg)](https://github.com/Enchan1207/blueprintpy/actions/workflows/ci.yml)
+[![version](https://img.shields.io/github/v/release/Enchan1207/blueprintpy)](https://github.com/Enchan1207/blueprintpy/releases)
 
 ## Overview
 
@@ -22,9 +22,9 @@ pip install blueprintpy
 
 ## Documents
 
-ドキュメントは[GitHub Pages](https://enchan1207.github.io/pip_init/index.html)にて公開しています。
+ドキュメントは[GitHub Pages](https://enchan1207.github.io/blueprintpy/index.html)にて公開しています。
 詳細な使用方法やAPIのリファレンスについてはドキュメントをご覧ください。
 
 ## License
 
-This repository is published under [MIT License](https://github.com/Enchan1207/pip_init/blob/master/LICENSE).
+This repository is published under [MIT License](https://github.com/Enchan1207/blueprintpy/blob/master/LICENSE).

@@ -1,8 +1,8 @@
 blueprintpy
 ===========
 
-.. image:: https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml/badge.svg
-    :target: https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml
+.. image:: https://github.com/Enchan1207/blueprintpy/actions/workflows/ci.yml/badge.svg
+    :target: https://github.com/Enchan1207/blueprintpy/actions/workflows/ci.yml
     :alt: Unittest status
 
 
