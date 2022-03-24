@@ -6,17 +6,16 @@ pip_init CLIツールのメインモジュール
 """
 
 import importlib
-from logging import handlers
 import sys
 from argparse import ArgumentParser
 from pathlib import Path
 from types import ModuleType
 from typing import Optional
 
-import pip_init
+from blueprintpy.core import ContentBuilder, ContentExtractor
 
-from pip_init_cli.args_handler import ArgsHandlerBase
-from pip_init_cli.config_loader import ConfigLoader
+from .args_handler import ArgsHandlerBase
+from .config_loader import ConfigLoader
 
 
 def main() -> int:
@@ -100,13 +99,13 @@ def main() -> int:
     prepared_args = args_handler.handle_args(config.args)
 
     # Contentをビルド
-    content_builder = pip_init.ContentBuilder(template_root, extract_root, prepared_args)
+    content_builder = ContentBuilder(template_root, extract_root, prepared_args)
     prepared_contents = [content_builder.build(content) for content in config.contents]
 
     # 配置
     for content in prepared_contents:
         if not is_dry_run:
-            pip_init.ContentExtractor.extract(content)
+            ContentExtractor.extract(content)
         else:
             print(f"expand: {content.source} -> {content.dest_path}")
 

@@ -7,7 +7,7 @@
 
 from typing import List
 
-from pip_init import Argument
+from blueprintpy.core import Argument
 
 from .base import Resolver
 

@@ -8,7 +8,7 @@ import tempfile
 from pathlib import Path
 from unittest import TestCase
 
-from src.pip_init import Argument, Content, ContentBuilder, ContentExtractor
+from src.blueprintpy.core import Argument, Content, ContentBuilder, ContentExtractor
 
 
 class testContentExtractor(TestCase):

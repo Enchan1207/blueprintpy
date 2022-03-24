@@ -8,8 +8,8 @@
 
 from typing import List, Optional, Type
 
-from pip_init import Argument
-from pip_init_cli.args_handler import ArgsHandlerBase
+from blueprintpy.core import Argument
+from blueprintpy.cli.args_handler import ArgsHandlerBase
 
 from .exceptions import ValidationError
 from .resolver import Resolver

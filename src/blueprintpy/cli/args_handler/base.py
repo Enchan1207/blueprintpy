@@ -11,7 +11,7 @@ from __future__ import annotations
 from abc import ABCMeta, abstractmethod
 from typing import List, Set, Type
 
-from pip_init import Argument
+from blueprintpy.core import Argument
 
 
 class ArgsHandlerBase(metaclass=ABCMeta):

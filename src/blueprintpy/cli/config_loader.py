@@ -5,7 +5,7 @@ import importlib
 from json.decoder import JSONDecoder
 from typing import Optional
 
-from pip_init import Argument, Config, Content
+from blueprintpy.core import Argument, Config, Content
 
 
 class ConfigLoader:

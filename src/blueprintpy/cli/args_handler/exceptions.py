@@ -4,7 +4,7 @@
 """引数の処理過程で発生する例外
 """
 
-from pip_init import Argument
+from blueprintpy.core import Argument
 
 
 class ArgumentHandlingError(Exception):

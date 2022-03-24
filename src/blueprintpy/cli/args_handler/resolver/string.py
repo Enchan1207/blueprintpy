@@ -5,7 +5,7 @@
 文字列形式のデータを代入するresolver
 """
 
-from pip_init import Argument
+from blueprintpy.core import Argument
 
 from ..exceptions import ValidationError
 from .base import Resolver

@@ -4,7 +4,7 @@
 from functools import reduce
 from typing import Any, Dict
 
-from pip_init import Config
+from blueprintpy.core import Config
 
 
 class ConfigSerializer:
