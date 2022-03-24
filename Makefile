@@ -5,7 +5,7 @@
 document_source_root="./doc_sources"
 document_output_root="./docs/"
 
-.PHONY: dummy cleanup test init_docs create_docs build_docs
+.PHONY: dummy cleanup test init_docs create_docs build_docs cleanup_docs release_test
 
 dummy:
 	@echo "make with no args is not supported!"
@@ -31,13 +31,19 @@ create_docs:
 		--force --module-first -d 1 \
 		--templatedir="${document_source_root}/_templates" \
 		-o ${document_source_root} \
-		./src/ \
-		"**/pip_init_internal_templates"
+		./src/blueprintpy \
+		"*internal_templates"
 	@rm ${document_source_root}/modules.rst
+	@rm ${document_source_root}/blueprintpy.rst
 
 
 build_docs:
 	sphinx-build ${document_source_root}/ ${document_output_root}
+
+cleanup_docs:
+	rm -rf ${document_output_root}
+	mkdir ${document_output_root}
+	touch ${document_output_root}/.nojekyll
 
 release_test:
 	python3 -m build && python3 -m twine upload --repository testpypi dist/*
