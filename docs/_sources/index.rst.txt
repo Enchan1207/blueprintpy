@@ -40,7 +40,8 @@ Indices
 =======
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    easy_usage
+   use_custom_template
    package_reference
