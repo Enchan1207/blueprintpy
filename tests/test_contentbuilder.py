@@ -2,7 +2,6 @@
 # ContentBuilderのテスト
 #
 
-import os
 import random
 import string
 import tempfile
@@ -13,9 +12,9 @@ from pathlib import Path
 from typing import List
 from unittest import TestCase
 
-from src.pip_init import Argument, Config, Content, ContentBuilder
-from src.pip_init_cli.config_loader import ConfigLoader
-from src.pip_init_cli.config_serializer import ConfigSerializer
+from src.blueprintpy.core import Argument, Config, Content, ContentBuilder
+from src.blueprintpy.cli.config_loader import ConfigLoader
+from src.blueprintpy.cli.config_serializer import ConfigSerializer
 
 
 class testContentBuilder(TestCase):

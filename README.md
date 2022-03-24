@@ -1,4 +1,4 @@
-# pip-init
+# blueprintpy
 
 [![Unittest](https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml/badge.svg)](https://github.com/Enchan1207/pip_init/actions/workflows/ci.yml)
 [![version](https://img.shields.io/github/v/release/Enchan1207/pip_init)](https://github.com/Enchan1207/pip_init/releases)
@@ -9,14 +9,14 @@ Python パッケージテンプレート展開ユーティリティ
 
 ## Description
 
-**pip-init**は、Pythonに `swift init` や `npm init` のような パッケージ初期化CLIを提供するユーティリティです。
+**blueprintpy**は、Pythonに `swift init` や `npm init` のような パッケージ初期化CLIを提供するユーティリティです。
 
 ## Installation
 
-PyPIよりパッケージをインストールできます。インストールの際、同時にCLIツール`pip-init`がインストールされます。
+PyPIよりパッケージをインストールできます。インストールの際、同時にCLIツール`blueprint`がインストールされます。
 
 ```
-pip install pip-init
+pip install blueprintpy
 ```
 
 

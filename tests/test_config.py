@@ -5,7 +5,7 @@
 from json import JSONDecodeError
 from unittest import TestCase
 
-from src.pip_init_cli.config_loader import ConfigLoader
+from src.blueprintpy.cli.config_loader import ConfigLoader
 
 
 class testTemplateConfig(TestCase):
@@ -16,7 +16,7 @@ class testTemplateConfig(TestCase):
 
         config_json_str = """
         {
-            "name": "pip_init_basic",
+            "name": "basic",
             "args": [
                 {
                     "name": "project_name",

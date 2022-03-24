@@ -1,0 +1,44 @@
+{
+    "name": "blueprintpy_default",
+    "args": [
+        {
+            "name": "project_name",
+            "description": "The name of project"
+        },
+        {
+            "name": "dependencies",
+            "description": "Dependencies of project",
+            "argtype": "array"
+        },
+        {
+            "name": "project_descripiton",
+            "description": "The description of project"
+        },
+        {
+            "name": "license",
+            "description": "The license name of project (e.g. 'MIT License')"
+        }
+    ],
+    "contents": [
+        {
+            "src": "setup.cfg.j2",
+            "dest": "setup.cfg"
+        },
+        {
+            "src": "setup.py",
+            "dest": "setup.py"
+        },
+        {
+            "src": "mypy.ini.j2",
+            "dest": "mypy.ini"
+        },
+        {
+            "src": "__init__.py.j2",
+            "dest": "src/{project_name}/__init__.py"
+        },
+        {
+            "src": "README.md.j2",
+            "dest": "README.md"
+        }
+    ]
+}
