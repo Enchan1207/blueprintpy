@@ -14,13 +14,13 @@ FetchContent_MakeAvailable(googletest)
 include(GoogleTest)
 
 # generate testcases
-add_executable({{ project_name }}_test
-    test_{{ project_name }}.cpp
+add_executable({{ project_name|lower }}_test
+    test_{{ project_name|lower }}.cpp
 )
-target_link_libraries({{ project_name }}_test
-    {{ project_name }}
+target_link_libraries({{ project_name|lower }}_test
+    {{ project_name|lower }}
     GTest::gtest_main
 )
 include_directories(${PROJECT_SOURCE_DIR}/src ${GTEST_INCLUDE_DIRS})
 
-gtest_discover_tests({{ project_name }}_test)
+gtest_discover_tests({{ project_name|lower }}_test)
