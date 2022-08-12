@@ -1,0 +1,48 @@
+{
+    "name": "cmake",
+    "args": [
+        {
+            "name": "project_name",
+            "description": "The name of project"
+        },
+        {
+            "name": "project_descripiton",
+            "description": "The description of project"
+        },
+        {
+            "name": "lib_or_exec",
+            "description": "Project type, executable(default) or library",
+            "default_value": "executable"
+        }
+    ],
+    "contents": [
+        {
+            "src": "README.md.j2",
+            "dest": "README.md"
+        },
+        {
+            "src": "CMakeLists_root.j2",
+            "dest": "CMakeLists.txt"
+        },
+        {
+            "src": "CMakeLists_src.j2",
+            "dest": "src/CMakeLists.txt"
+        },
+        {
+            "src": "CMakeLists_tests.j2",
+            "dest": "tests/CMakeLists.txt"
+        },
+        {
+            "src": "project.cpp.j2",
+            "dest": "src/{project_name}.cpp"
+        },
+        {
+            "src": "project.hpp.j2",
+            "dest": "src/{project_name}.hpp"
+        },
+        {
+            "src": "test_project.cpp.j2",
+            "dest": "tests/test_{project_name}.cpp"
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.21)
+
+add_{{ lib_or_exec }}({{ project_name }}
+    {{ project_name }}.hpp
+    {{ project_name }}.cpp
+)
+
+include_directories(${PROJECT_SOURCE_DIR}/src)
