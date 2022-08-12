@@ -34,15 +34,15 @@
         },
         {
             "src": "project.cpp.j2",
-            "dest": "src/{project_name|lower}.cpp"
+            "dest": "src/{{project_name|lower}}.cpp"
         },
         {
             "src": "project.hpp.j2",
-            "dest": "src/{project_name|lower}.hpp"
+            "dest": "src/{{project_name|lower}}.hpp"
         },
         {
             "src": "test_project.cpp.j2",
-            "dest": "tests/test_{project_name|lower}.cpp"
+            "dest": "tests/test_{{project_name|lower}}.cpp"
         }
     ]
 }
