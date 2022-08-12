@@ -45,8 +45,8 @@ class testContentBuilder(TestCase):
             temp_content_name = f"content_{n}_{self.random_strings(20)}"
             temp_content_path = self.template_root_path / temp_content_name
 
-            # モックに追加 わかりにくいですが "{引数名}" を生成しています
-            contents_mock.append(Content(str(temp_content_path), f"./{{{args_mock[n].name}}}"))
+            # モックに追加 わかりにくいですが "{{引数名}}" を生成しています
+            contents_mock.append(Content(str(temp_content_path), f"./{{{{{args_mock[n].name}}}}}"))
 
             # 一時ファイルの実体を生成 値はargsの中身
             with open(temp_content_path, "w") as f:

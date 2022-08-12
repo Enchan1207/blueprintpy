@@ -56,18 +56,17 @@ class ContentBuilder:
             PreparedContent: 処理結果
         """
 
-        # Content.destをf文字列展開
-        formatted_dest = content.dest.format(**self.template_args)
-
-        # それぞれ絶対パスに変換
-        source_abspath = self.template_root / content.src
+        # Content.destをjinjaに通し、配置先の絶対パスを生成
+        dest_template = Environment(loader=BaseLoader()).from_string(content.dest)
+        formatted_dest = dest_template.render(self.template_args)
         dest_abspath = self.extract_root / formatted_dest
 
         # テンプレートエンジンを通さなくてよければそのまま戻る
         if not content.use_template_engine:
+            source_abspath = self.template_root / content.src
             return PreparedContent(dest_abspath, source_abspath, None)
 
         # srcが指すファイルを読み込み、jinjaに通して返す
-        template = self.env.get_template(content.src)
-        render_result = template.render(self.template_args).encode()
+        content_template = self.env.get_template(content.src)
+        render_result = content_template.render(self.template_args).encode()
         return PreparedContent(dest_abspath, None, render_result)
