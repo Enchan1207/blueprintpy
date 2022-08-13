@@ -6,7 +6,8 @@ name: Unittest
 on:
   push:
     branches:
-      - master
+      - release
+      - develop
   pull_request:
 
 jobs:
