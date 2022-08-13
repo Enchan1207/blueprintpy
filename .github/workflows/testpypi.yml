@@ -3,13 +3,13 @@
 #
 # 参考: https://packaging.python.org/en/latest/guides/publishing-package-distribution-releases-using-github-actions-ci-cd-workflows/
 #
-name: TestPyPi
+name: testpypi
 
 # Unittestが成功した場合のみ実行
 on:
   workflow_run:
     workflows:
-      - Unittest
+      - unittest
     types:
       - completed
 
