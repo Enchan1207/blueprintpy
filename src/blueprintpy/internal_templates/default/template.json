@@ -6,17 +6,18 @@
             "description": "The name of project"
         },
         {
-            "name": "dependencies",
-            "description": "Dependencies of project",
-            "argtype": "array"
-        },
-        {
             "name": "project_descripiton",
             "description": "The description of project"
         },
         {
             "name": "license",
-            "description": "The license name of project (e.g. 'MIT License')"
+            "description": "The license name of project",
+            "default_value": "MIT License"
+        },
+        {
+            "name": "dependencies",
+            "description": "Dependencies of project",
+            "argtype": "array"
         }
     ],
     "contents": [
