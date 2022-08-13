@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>基本的な使用法 &mdash; blueprintpy v1.0.0 ドキュメント</title>
+  <title>基本的な使い方 &mdash; blueprintpy v1.0.0 ドキュメント</title>
   
 
   
@@ -42,7 +42,7 @@
     
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
-    <link rel="next" title="パッケージ リファレンス" href="package_reference.html" />
+    <link rel="next" title="カスタムテンプレートの作成と使用" href="use_custom_template.html" />
     <link rel="prev" title="blueprintpy" href="index.html" /> 
 </head>
 
@@ -89,7 +89,14 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">基本的な使用法</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">基本的な使い方</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1. プロジェクトルートの生成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blueprint">2. blueprintコマンドの実行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3. パラメータの設定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">生成結果</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="use_custom_template.html">カスタムテンプレートの作成と使用</a></li>
 <li class="toctree-l1"><a class="reference internal" href="package_reference.html">パッケージ リファレンス</a></li>
 </ul>
 
@@ -139,7 +146,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>基本的な使用法</li>
+      <li>基本的な使い方</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,8 +168,67 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>基本的な使用法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Under construction...</p>
+<h1>基本的な使い方<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="line-block">
+<div class="line">blueprintpyのCLI <code class="code docutils literal notranslate"><span class="pre">blueprint</span></code> について、付属のデフォルトテンプレートを展開する例を示します。</div>
+<div class="line">このテンプレートでは、pipコマンドでインストール可能なPythonパッケージの最小構成を生成することができます。</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>デフォルトテンプレートで展開される内容は予告なく変更される可能性があり、 <strong>ドキュメントに反映されるまで時間がかかることがあります。</strong>
+展開されるテンプレートの内容は <code class="code docutils literal notranslate"><span class="pre">blueprintpy.internal_templates</span></code> モジュールを確認してください。</p>
+</div>
+<div class="section" id="id2">
+<h2>1. プロジェクトルートの生成<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトのルートとなるディレクトリを作成します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">project_test</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="blueprint">
+<h2>2. blueprintコマンドの実行<a class="headerlink" href="#blueprint" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>プロジェクトディレクトリに移動し、 <code class="code docutils literal notranslate"><span class="pre">blueprint</span></code> コマンドを実行します。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">project_test</span>
+<span class="n">blueprint</span> <span class="o">.</span> <span class="o">--</span><span class="n">name</span> <span class="n">default</span>
+</pre></div>
+</div>
+<p>コマンドの構文は以下の通りです。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">blueprint</span> <span class="n">展開先ディレクトリパス</span> <span class="o">--</span><span class="n">name</span> <span class="n">テンプレート名</span>
+</pre></div>
+</div>
+<p>(<code class="code docutils literal notranslate"><span class="pre">blueprint</span> <span class="pre">--help</span></code> を実行することで、より詳細なヘルプを閲覧できます。)</p>
+<p>なお、展開先ディレクトリパスおよびテンプレート名は省略することができます。
+展開先を省略した場合は現在のディレクトリに、テンプレート名を省略した場合は <code class="code docutils literal notranslate"><span class="pre">default</span></code> が設定されます。</p>
+<p>(つまり、今回の場合は単純に <code class="code docutils literal notranslate"><span class="pre">blueprint</span></code> とするだけでも問題はありません)</p>
+</div>
+<div class="section" id="id3">
+<h2>3. パラメータの設定<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コマンドを実行すると、以下のパラメータを設定するよう求められます。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>プロジェクト名 (<code class="code docutils literal notranslate"><span class="pre">project_name</span></code>)</p></li>
+<li><p>プロジェクトの説明 (<code class="code docutils literal notranslate"><span class="pre">project_descripiton</span></code>)</p></li>
+<li><p>ライセンス (<code class="code docutils literal notranslate"><span class="pre">license</span></code>)</p></li>
+<li><p>依存関係パッケージ (<code class="code docutils literal notranslate"><span class="pre">dependencies</span></code>)</p></li>
+</ul>
+</div></blockquote>
+<p>依存関係パッケージについては、EOF(Ctrl+D)が入力されるまで値を追加することができます。</p>
+</div>
+<div class="section" id="id4">
+<h2>生成結果<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>設定されたパラメータの値をもとにテンプレートが展開され、所定の場所に配置されます。
+完了後のディレクトリ構成は以下のようになります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── README.md
+├── mypy.ini
+├── setup.cfg
+├── setup.py
+└── src
+    └── project_example
+        └── __init__.py
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -171,7 +237,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="package_reference.html" class="btn btn-neutral float-right" title="パッケージ リファレンス" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="use_custom_template.html" class="btn btn-neutral float-right" title="カスタムテンプレートの作成と使用" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="index.html" class="btn btn-neutral float-left" title="blueprintpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
