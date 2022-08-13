@@ -22,6 +22,23 @@ jobs:
         with:
           python-version: 3.9
 
+      - name: Calculate next version number
+        run: |
+          export CURRENT_FULL_VERSION=`cat setup.cfg | sed -rn "s/version=(.*)/\1/p"`
+          CURRENT_PATCH_VERSION=`echo ${CURRENT_FULL_VERSION} | sed -r 's/^.+\..+\.(.*)$/\1/'`
+          NEXT_PATCH_VERSION=$(( ${CURRENT_PATCH_VERSION}+1 ))
+          export NEXT_FULL_VERSION=`echo ${CURRENT_FULL_VERSION} | sed -r "s/^(.+)\.(.+)\..*$/\1.\2.${NEXT_PATCH_VERSION}/"`
+          echo "Update: ${CURRENT_FULL_VERSION} -> ${NEXT_FULL_VERSION}"
+
+      - name: Modify setup.cfg
+        run: sed -i "" "s/version=.*/version=${NEXT_FULL_VERSION}/" setup.cfg
+
+      - name: Git commit
+        run: |
+          git add setup.cfg
+          git commit -m "[Modify] setup.cfg (${CURRENT_FULL_VERSION} -> ${NEXT_FULL_VERSION}) **automated**"
+          git push
+
       - name: Install pypa/build
         run: python -m pip install build --user
 
