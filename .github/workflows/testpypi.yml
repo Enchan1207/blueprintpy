@@ -5,13 +5,11 @@
 #
 name: testpypi
 
-# Unittestが成功した場合のみ実行
 on:
-  workflow_run:
-    workflows:
-      - unittest
-    types:
-      - completed
+  push:
+    branches:
+      - release
+      - develop
 
 jobs:
   publish_to_testpypi:
