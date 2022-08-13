@@ -31,7 +31,7 @@ jobs:
           echo "Update: ${CURRENT_FULL_VERSION} -> ${NEXT_FULL_VERSION}"
 
       - name: Modify setup.cfg
-        run: sed -i "" "s/version=.*/version=${NEXT_FULL_VERSION}/" setup.cfg
+        run: sed -i -e "s/version=.*/version=${NEXT_FULL_VERSION}/" setup.cfg
 
       - name: Git commit
         run: |
