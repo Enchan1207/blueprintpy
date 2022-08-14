@@ -31,6 +31,9 @@ jobs:
           VERSION=`cat setup.cfg | sed -rn "s/version=(.*)/\1/p"`
           echo "current_full_version=${VERSION}" >> $GITHUB_ENV
 
+      - name: Get hash of last commit
+        run: echo "latest_commit_hash=`git rev-parse HEAD`" >> $GITHUB_ENV
+
       - name: Create draft release
         uses: softprops/action-gh-release@v1
         env:
@@ -38,8 +41,10 @@ jobs:
 
         with:
           tag_name: v${{ env.current_full_version }}
+          target_commitish: ${{ env.latest_commit_hash }}
           draft: true
           prerelease: false
+          generate_release_notes: true
 
   publish_to_pypi:
     needs: branch_check
