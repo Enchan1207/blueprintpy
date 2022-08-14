@@ -42,7 +42,7 @@ jobs:
         with:
           tag_name: v${{ env.current_full_version }}
           target_commitish: ${{ env.latest_commit_hash }}
-          draft: true
+          draft: false
           prerelease: false
           generate_release_notes: true
 
