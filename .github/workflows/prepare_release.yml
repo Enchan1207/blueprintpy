@@ -15,7 +15,25 @@ on:
       - completed
 
 jobs:
+  build_docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: build document using sphinx
+        run: sphinx-build doc_sources/ docs/
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "automated document building"
+
   auto_versioning:
+    needs: build_docs
     runs-on: ubuntu-latest
 
     steps:
@@ -36,4 +54,4 @@ jobs:
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "[Modify] auto versioning"
+          commit_message: "automated versioning"
