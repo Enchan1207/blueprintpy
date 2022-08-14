@@ -1,19 +1,19 @@
 ![banner](https://raw.githubusercontent.com/Enchan1207/blueprintpy/master/banner.png)
 
-[![Unittest](https://github.com/Enchan1207/blueprintpy/actions/workflows/ci.yml/badge.svg)](https://github.com/Enchan1207/blueprintpy/actions/workflows/ci.yml)
-[![version](https://img.shields.io/github/v/release/Enchan1207/blueprintpy)](https://github.com/Enchan1207/blueprintpy/releases)
-
 ## Overview
 
-Python パッケージテンプレート展開ユーティリティ
+Generic package configurating utility
 
 ## Description
 
-**blueprintpy**は、Pythonに `swift init` や `npm init` のような パッケージ初期化CLIを提供するユーティリティです。
+**blueprintpy** is a generic utility that provides package configurating CLI like :code:`npm init` or :code:`swift init`.
+
+By default it contains generic Python package configuration (pypi-compliant), but you can customize it.  
+Furthermore, each configuration is managed as **Template**, so you can create your own template.
 
 ## Installation
 
-PyPIよりパッケージをインストールできます。インストールの際、同時にCLIツール`blueprint`がインストールされます。
+blueprintpy can be installed from PyPI. The CLI tool `blueprint` will also be installed.
 
 ```
 pip install blueprintpy
@@ -22,8 +22,7 @@ pip install blueprintpy
 
 ## Documents
 
-ドキュメントは[GitHub Pages](https://enchan1207.github.io/blueprintpy/index.html)にて公開しています。
-詳細な使用方法やAPIのリファレンスについてはドキュメントをご覧ください。
+Documents and API references are publised at [GitHub Pages](https://enchan1207.github.io/blueprintpy/index.html).  
 
 ## License
 
