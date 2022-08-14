@@ -5,11 +5,42 @@ name: pypi
 
 on:
   workflow_dispatch:
-    branches:
-      - release
 
 jobs:
+  branch_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check if the workflow was called from master branch
+        run: |
+          CURRENT=`git branch | grep "^*" | sed -e "s/^\* //"`
+          CHECK="release"
+          [ $CURRENT = $CHECK ]
+
+  publish_release:
+    needs: branch_check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get current version
+        run: |
+          VERSION=`cat setup.cfg | sed -rn "s/version=(.*)/\1/p"`
+          echo "current_full_version=${VERSION}" >> $GITHUB_ENV
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+        with:
+          tag_name: v${{ env.current_full_version }}
+          draft: true
+          prerelease: false
+
   publish_to_pypi:
+    needs: branch_check
     runs-on: ubuntu-latest
 
     steps:
