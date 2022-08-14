@@ -4,6 +4,11 @@ blueprintpy
 .. image:: https://raw.githubusercontent.com/Enchan1207/blueprintpy/master/banner.png
     :alt: project logo
 
+|ImageLink|
+
+.. |ImageLink| image:: https://img.shields.io/pypi/v/blueprintpy
+.. _ImageLink: https://pypi.org/project/blueprintpy/
+
 Overview
 ========
 
