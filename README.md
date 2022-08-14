@@ -1,12 +1,14 @@
 ![banner](https://raw.githubusercontent.com/Enchan1207/blueprintpy/master/banner.png)
 
+[![pypi](https://img.shields.io/pypi/v/blueprintpy)](https://pypi.org/project/blueprintpy/)
+
 ## Overview
 
 Generic package configurating utility
 
 ## Description
 
-**blueprintpy** is a generic utility that provides package configurating CLI like :code:`npm init` or :code:`swift init`.
+**blueprintpy** is a generic utility that provides package configurating CLI like `npm init` or `swift init`.
 
 By default it contains generic Python package configuration (pypi-compliant), but you can customize it.  
 Furthermore, each configuration is managed as **Template**, so you can create your own template.
