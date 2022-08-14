@@ -5,6 +5,8 @@ name: pypi
 
 on:
   workflow_dispatch:
+    branches:
+      - release
 
 jobs:
   publish_to_pypi:
