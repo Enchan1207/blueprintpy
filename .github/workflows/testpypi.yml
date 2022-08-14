@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - release
-      - develop
 
 jobs:
   publish_to_testpypi:
