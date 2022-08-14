@@ -1,26 +1,21 @@
 #
-# publish package to pypi
+# Release
 #
-name: pypi
+
+name: release
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - prepare for release
+    branches:
+      - release
+    types:
+      - completed
 
 jobs:
-  branch_check:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Check if the workflow was called from master branch
-        run: |
-          CURRENT=`git branch | grep "^*" | sed -e "s/^\* //"`
-          CHECK="release"
-          [ $CURRENT = $CHECK ]
-
   publish_release:
-    needs: branch_check
+    needs: auto_versioning
     runs-on: ubuntu-latest
 
     steps:
@@ -30,6 +25,7 @@ jobs:
         run: |
           VERSION=`cat setup.cfg | sed -rn "s/version=(.*)/\1/p"`
           echo "current_full_version=${VERSION}" >> $GITHUB_ENV
+          echo "version ${VERSION} will be released!"
 
       - name: Get hash of last commit
         run: echo "latest_commit_hash=`git rev-parse HEAD`" >> $GITHUB_ENV
@@ -42,12 +38,12 @@ jobs:
         with:
           tag_name: v${{ env.current_full_version }}
           target_commitish: ${{ env.latest_commit_hash }}
-          draft: true
+          draft: false
           prerelease: false
           generate_release_notes: true
 
   publish_to_pypi:
-    needs: branch_check
+    needs: auto_versioning
     runs-on: ubuntu-latest
 
     steps:
