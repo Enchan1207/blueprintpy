@@ -65,7 +65,7 @@ jobs:
 
       - name: Commit and push built documents
         run: |
-          for document in $( docs/build ); do
+          for document in $( ls docs/build ); do
               mv docs/build/${document} .
               git add ${document}
           done
