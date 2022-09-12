@@ -63,12 +63,13 @@ jobs:
           git checkout --orphan gh-pages
           git reset --hard
 
-      - name: Commit built document files at root
+      - name: Commit and push built documents
         run: |
           for document in $( docs/build ); do
               mv docs/build/${document} .
+              git add ${document}
           done
-          touch docs/build/.nojekyll
-          git add .
+          touch .nojekyll
+          git add .nojekyll
           git commit -m "[Update] *automated* documents"
           git push origin gh-pages
