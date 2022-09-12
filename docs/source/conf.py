@@ -10,7 +10,7 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('../src'))
+sys.path.insert(0, os.path.abspath('../../src'))
 
 
 # -- プロジェクト情報
@@ -20,7 +20,7 @@ copyright = '2022, Enchan1207'
 author = 'Enchan1207'
 
 # alpha/beta/rcタグを含む完全なバージョン情報
-release = 'v2.0.7'
+release = 'v2.0.6'
 
 
 # -- 一般設定
@@ -29,6 +29,7 @@ release = 'v2.0.7'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
+    'sphinx_multiversion'
 ]
 
 # テンプレートパス
@@ -65,5 +66,9 @@ html_context = {
     'display_github': True,
     'github_user': 'Enchan1207',
     'github_repo': 'blueprintpy',
-    'github_version': 'master/doc_sources/',
+    'github_version': 'release/docs/source',
 }
+
+# sphinx-multiversion
+smv_tag_whitelist = r'^v\d+\.\d+\.\d+$'  # セマンティックバージョニング
+smv_branch_whitelist = r'^(release|develop)$'  # リリースブランチ、または開発ブランチ

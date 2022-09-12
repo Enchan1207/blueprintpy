@@ -1,0 +1,62 @@
+#
+# document
+#
+name: document
+
+# Only executed when PRs are merged into a release or develop branch
+# ref: https://qiita.com/okazy/items/7ab46f2c20ec341a2836
+on:
+  pull_request:
+    branches:
+      - release
+      - develop
+    types: [closed]
+
+jobs:
+  document:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install repository to make it usable as package
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install .
+
+      - name: Install dependencies for sphinx
+        run: |
+          pip install sphinx sphinx_rtd_theme sphinx-multiversion
+
+      - name: Create API documentation using sphinx-apidoc
+        run: |
+          sphinx-apidoc \
+          --force \
+          --module-first \
+          -d 1 \
+          --templatedir="docs/source/_templates" \
+          -o docs/source \
+          ./src/blueprintpy \
+          "*internal_templates"
+
+      - name: Remove unused document sources
+        run: |
+          cd docs/source
+          rm -f modules.rst blueprintpy.rst
+
+      - name: Build HTML documentation using sphinx-multiversion
+        run: sphinx-multiversion docs/source docs/build
+
+      - name: Add .nojekyll to built document
+        run: touch docs/source/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build
