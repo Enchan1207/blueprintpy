@@ -73,5 +73,5 @@ jobs:
           done
           touch .nojekyll
           git add .nojekyll
-          git commit -m "[Update] *automated* documents"
+          git diff --quiet && git diff --staged --quiet || git commit -am "[Update] *automated* documents"
           git push origin gh-pages
