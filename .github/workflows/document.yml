@@ -52,6 +52,9 @@ jobs:
       - name: Build HTML documentation using sphinx-multiversion
         run: sphinx-multiversion docs/source docs/build
 
+      - name: Add .nojekyll to built document
+        run: touch docs/source/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
