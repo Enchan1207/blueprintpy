@@ -1,0 +1,19 @@
+#
+# {{ project_name }} cli
+#
+
+cmake_minimum_required(VERSION 3.21)
+
+add_executable({{ project_name|lower }}_cli)
+target_sources({{ project_name|lower }}_cli PRIVATE
+    main.cpp
+)
+target_include_directories({{ project_name|lower }}_cli PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+)
+target_link_libraries({{ project_name|lower }}_cli PRIVATE
+    {{ project_name|lower }}
+)
+target_compile_options({{ project_name|lower }}_cli PRIVATE
+    -Wall
+)

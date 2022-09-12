@@ -25,3 +25,7 @@ def blueprint() -> int:
         print("\033[31;1mProcess aborted by user interaction.\033[0m")
         print("\n")
         return 1
+
+
+if __name__ == "__main__":
+    blueprint()
