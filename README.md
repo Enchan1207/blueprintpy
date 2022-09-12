@@ -1,17 +1,17 @@
-![banner](https://raw.githubusercontent.com/Enchan1207/blueprintpy/master/banner.png)
+![banner](https://raw.githubusercontent.com/Enchan1207/blueprintpy/HEAD/banner.png)
 
 [![pypi](https://img.shields.io/pypi/v/blueprintpy)](https://pypi.org/project/blueprintpy/)
 
 ## Overview
 
-Generic package configurating utility
+Generic package configuration CLI generator
 
 ## Description
 
-**blueprintpy** is a generic utility that provides package configurating CLI like `npm init` or `swift init`.
+**blueprintpy** is a generic utility that provides package configuration CLI like `npm init` or `swift init`.
 
-By default it contains generic Python package configuration (pypi-compliant), but you can customize it.  
-Furthermore, each configuration is managed as **Template**, so you can create your own template.
+By default it contains generic pypi-compliant Python package and CMake-compliant C++ configuration, but you can customize it.  
+Furthermore, each configuration is managed as template using [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/), so you can create your own template.
 
 ## Installation
 
@@ -28,4 +28,4 @@ Documents and API references are publised at [GitHub Pages](https://enchan1207.g
 
 ## License
 
-This repository is published under [MIT License](https://github.com/Enchan1207/blueprintpy/blob/master/LICENSE).
+This repository is published under [MIT License](https://github.com/Enchan1207/blueprintpy/blob/HEAD/LICENSE).

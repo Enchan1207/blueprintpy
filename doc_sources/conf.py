@@ -20,7 +20,7 @@ copyright = '2022, Enchan1207'
 author = 'Enchan1207'
 
 # alpha/beta/rcタグを含む完全なバージョン情報
-release = 'v1.0.0'
+release = 'v2.0.7'
 
 
 # -- 一般設定

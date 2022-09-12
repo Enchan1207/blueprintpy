@@ -1,8 +1,8 @@
 blueprintpy
 ===========
 
-.. image:: https://raw.githubusercontent.com/Enchan1207/blueprintpy/master/banner.png
-    :alt: project logo
+.. image:: https://raw.githubusercontent.com/Enchan1207/blueprintpy/HEAD/banner.png
+    :alt: banner
 
 |ImageLink|
 
@@ -12,10 +12,11 @@ blueprintpy
 Overview
 ========
 
-**blueprintpy** は、:code:`npm init` や :code:`swift init` のようなパッケージ構成CLIを提供するユーティリティです。
+**blueprintpy** は、:code:`npm init` や :code:`swift init` のようなパッケージ構成CLIを生成するユーティリティです。
 
-パッケージの構成は **テンプレート** と呼ばれる単位で管理され、ユーザは自由にこれを作成・カスタマイズすることができます。
-デフォルトではpip用に最適化されたものが用意されていますが、今後のアップデートで随時追加されていく予定です。 もちろんテンプレート追加のためのPRも歓迎です。
+パッケージ構成は Jinja2を使用したテンプレートで管理され、自由に作成・カスタマイズできます。
+デフォルトではpypi準拠のPythonパッケージおよびCMake準拠のC++プロジェクト用CLIが用意されていますが、
+今後の更新によって随時追加していく予定です。 もちろん、ユーザの皆様からのPRも歓迎です。
 
 Installation
 ============
