@@ -23,10 +23,10 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: install repository to make it usable as package
+      - name: Install repository to make it usable as package
         run: |
           python3 -m pip install --upgrade pip
           pip install .
 
-      - name: unittest
+      - name: Execute unittest
         run: python3 -m unittest discover tests
