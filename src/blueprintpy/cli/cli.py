@@ -12,10 +12,14 @@ from pathlib import Path
 from types import ModuleType
 from typing import Optional
 
+from blueprintpy import internal_templates
 from blueprintpy.core import ContentBuilder, ContentExtractor
+from blueprintpy.core import version as core_version
 
 from .args_handler import ArgsHandlerBase
 from .config_loader import ConfigLoader
+
+cli_version = "0.2.0"
 
 
 def main() -> int:
@@ -28,7 +32,9 @@ def main() -> int:
     parser = ArgumentParser(
         prog='blueprint',
         usage="%(prog)s [target] [--name name_of_template] [--template_dir path/to/template]",
-        description="Python package template extractor")
+        description=f"Generic package configuration CLI generator",
+
+        epilog=f"Internal templates are placed and will be searched at: {Path(internal_templates.__file__).parent}")
     parser.add_argument(
         "target",
         nargs="?",
@@ -45,6 +51,12 @@ def main() -> int:
         "--dry_run", "-d",
         action='store_true',
         help="shows only which files are expanded")
+    parser.add_argument(
+        "--version",
+        action="version",
+        help="show version information and exit",
+        version=f"blueprintpy core v{core_version}, cli v{cli_version}"
+    )
 
     # パースして情報を取得
     args = parser.parse_args()
@@ -54,7 +66,7 @@ def main() -> int:
     is_dry_run = args.dry_run
 
     if is_dry_run:
-        print("Execute as dry-run mode.")
+        print("\033[;1mDry-run Mode enabled\033[0m")
 
     # template_rootが指定された場合はsys.pathに追加しておく
     if additional_template_dir is not None:
@@ -112,12 +124,3 @@ def main() -> int:
     # 完了
     print("Succeeded.")
     return 0
-
-
-if __name__ == "__main__":
-    result = 0
-    try:
-        result = main() or 0
-    except KeyboardInterrupt:
-        print("Ctrl+C")
-        exit(result)
