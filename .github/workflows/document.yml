@@ -52,11 +52,23 @@ jobs:
       - name: Build HTML documentation using sphinx-multiversion
         run: sphinx-multiversion docs/source docs/build
 
-      - name: Add .nojekyll to built document
-        run: touch docs/source/.nojekyll
+      - name: Git setup
+        run: |
+          set -x
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/build
+      - name: Switch to orphan branch for deploying to GitHub Pages
+        run: |
+          git checkout --orphan gh-pages
+          git reset --hard
+
+      - name: Commit built document files at root
+        run: |
+          for document in $( docs/build ); do
+              mv docs/build/${document} .
+          done
+          touch docs/build/.nojekyll
+          git add .
+          git commit -m "[Update] *automated* documents"
+          git push origin gh-pages
