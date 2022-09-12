@@ -1,0 +1,32 @@
+#
+# unittest
+#
+name: unittest
+
+on:
+  push:
+    branches:
+      - release
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install repository to make it usable as package
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install .
+
+      - name: Execute unittest
+        run: python3 -m unittest discover tests
