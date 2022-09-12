@@ -3,7 +3,7 @@
 #
 cmake_minimum_required(VERSION 3.21)
 
-# cofigure unittest using GoogleTest
+# GoogleTestのフェッチと有効化
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -13,14 +13,22 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 include(GoogleTest)
 
-# generate testcases
-add_executable({{ project_name|lower }}_test
+## 外部依存関係を追加...
+
+# テストターゲットの構成
+add_executable({{ project_name|lower }}_test)
+target_sources({{ project_name|lower }}_test PRIVATE
     test_{{ project_name|lower }}.cpp
 )
-target_link_libraries({{ project_name|lower }}_test
+target_link_libraries({{ project_name|lower }}_test PRIVATE
     {{ project_name|lower }}
     GTest::gtest_main
 )
-include_directories(${PROJECT_SOURCE_DIR}/src ${GTEST_INCLUDE_DIRS})
+target_include_directories({{ project_name|lower }}_test
+    PRIVATE
+    ${PROJECT_SOURCE_DIR}/include
+    ${GTEST_INCLUDE_DIRS}
+)
 
+# テストの実行
 gtest_discover_tests({{ project_name|lower }}_test)

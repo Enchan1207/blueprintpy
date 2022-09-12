@@ -2,12 +2,30 @@
 # {{ project_name }}
 #
 cmake_minimum_required(VERSION 3.21)
-project({{ project_name }} CXX)
+project({{ project_name }}
+    VERSION 0.1.0
+    DESCRIPTION "{{ project_descripiton }}"
+    LANGUAGES C CXX
+)
 
-enable_testing()
+enable_language(CXX)
+set(CMAKE_CXX_STANDARD {{ cpp_standard }})
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-# GoogleTest requires at least C++14
-set(CMAKE_CXX_STANDARD 14)
-
+# ライブラリソースディレクトリ
 add_subdirectory(src)
-add_subdirectory(tests)
+
+# CLIソースディレクトリ
+add_subdirectory(cli)
+
+# 依存関係としてビルドされている場合は、tests/ を除外する
+if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+    option({{ project_name|upper }}_BUILD_TESTS "whether to build tests" ON)
+
+    if({{ project_name|upper }}_BUILD_TESTS)
+        message(NOTICE "testing enabled")
+        enable_testing()
+        add_subdirectory(tests)
+    endif()
+endif()
