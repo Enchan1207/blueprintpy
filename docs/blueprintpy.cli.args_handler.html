@@ -1,74 +1,36 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="ja" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>blueprintpy.cli.args_handler &mdash; blueprintpy v1.0.0 ドキュメント</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/translations.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="検索" href="search.html" />
     <link rel="next" title="blueprintpy.cli.args_handler.resolver" href="blueprintpy.cli.args_handler.resolver.html" />
     <link rel="prev" title="blueprintpy.cli" href="blueprintpy.cli.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> blueprintpy
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -76,18 +38,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="easy_usage.html">基本的な使い方</a></li>
 <li class="toctree-l1"><a class="reference internal" href="use_custom_template.html">カスタムテンプレートの作成と使用</a></li>
@@ -108,101 +59,56 @@
 </li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">blueprintpy</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="package_reference.html">パッケージ リファレンス</a> &raquo;</li>
-        
           <li><a href="blueprintpy.cli.html">blueprintpy.cli</a> &raquo;</li>
-        
       <li>blueprintpy.cli.args_handler</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-            
               <a href="https://github.com/Enchan1207/blueprintpy/blob/master/doc_sources/blueprintpy.cli.args_handler.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-blueprintpy.cli.args_handler">
-<span id="blueprintpy-cli-args-handler"></span><h1>blueprintpy.cli.args_handler<a class="headerlink" href="#module-blueprintpy.cli.args_handler" title="このヘッドラインへのパーマリンク">¶</a></h1>
+             
+  <section id="module-blueprintpy.cli.args_handler">
+<span id="blueprintpy-cli-args-handler"></span><h1>blueprintpy.cli.args_handler<a class="headerlink" href="#module-blueprintpy.cli.args_handler" title="この見出しへのパーマリンク"></a></h1>
 <p>テンプレート引数群 (<a class="reference internal" href="blueprintpy.core.html#module-blueprintpy.core.argument" title="blueprintpy.core.argument"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blueprintpy.core.argument</span></code></a> のリスト) をハンドルするパッケージ.</p>
-<div class="section" id="id1">
-<h2>サブパッケージ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<section id="id1">
+<h2>サブパッケージ<a class="headerlink" href="#id1" title="この見出しへのパーマリンク"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="blueprintpy.cli.args_handler.resolver.html">blueprintpy.cli.args_handler.resolver</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="id2">
-<h2>モジュール<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-</div>
-<div class="section" id="module-blueprintpy.cli.args_handler.base">
-<span id="blueprintpy-cli-args-handler-base"></span><h2>blueprintpy.cli.args_handler.base<a class="headerlink" href="#module-blueprintpy.cli.args_handler.base" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="id2">
+<h2>モジュール<a class="headerlink" href="#id2" title="この見出しへのパーマリンク"></a></h2>
+</section>
+<section id="module-blueprintpy.cli.args_handler.base">
+<span id="blueprintpy-cli-args-handler-base"></span><h2>blueprintpy.cli.args_handler.base<a class="headerlink" href="#module-blueprintpy.cli.args_handler.base" title="この見出しへのパーマリンク"></a></h2>
 <p>テンプレート引数ハンドラの基底クラス</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.base.ArgsHandlerBase">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.base.</span></span><span class="sig-name descname"><span class="pre">ArgsHandlerBase</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase" title="この定義へのパーマリンク">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.base.</span></span><span class="sig-name descname"><span class="pre">ArgsHandlerBase</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase" title="この定義へのパーマリンク"></a></dt>
 <dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.base.ArgsHandlerBase.handlers">
-<span class="sig-name descname"><span class="pre">handlers</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase.handlers" title="この定義へのパーマリンク">¶</a></dt>
+<span class="sig-name descname"><span class="pre">handlers</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase.handlers" title="この定義へのパーマリンク"></a></dt>
 <dd><p>基底クラスを継承したArgsHandlerのセット</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -213,7 +119,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.base.ArgsHandlerBase.__handler_name__">
-<span class="sig-name descname"><span class="pre">__handler_name__</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase.__handler_name__" title="この定義へのパーマリンク">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__handler_name__</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase.__handler_name__" title="この定義へのパーマリンク"></a></dt>
 <dd><p>引数ハンドラを特定するための名前</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -224,7 +130,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.base.ArgsHandlerBase.handle_args">
-<em class="property"><span class="pre">abstract</span> <span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">handle_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">blueprintpy.core.argument.Argument</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">blueprintpy.core.argument.Argument</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase.handle_args" title="この定義へのパーマリンク">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handle_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">Argument</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">Argument</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase.handle_args" title="この定義へのパーマリンク"></a></dt>
 <dd><p>与えられたテンプレート引数リストに適切な値を挿入します。</p>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ</dt>
@@ -241,23 +147,23 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="pre">:</span> <span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase" title="blueprintpy.cli.args_handler.base.ArgsHandlerBase"><span class="pre">blueprintpy.cli.args_handler.base.ArgsHandlerBase</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"> <span class="pre">=</span> <span class="pre">{&lt;class</span> <span class="pre">'blueprintpy.cli.args_handler.default.DefaultArgsHandler'&gt;}</span></em><a class="headerlink" href="#id0" title="この定義へのパーマリンク">¶</a></dt>
+<span class="sig-name descname"><span class="pre">handlers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Set</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase" title="blueprintpy.cli.args_handler.base.ArgsHandlerBase"><span class="pre">ArgsHandlerBase</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'blueprintpy.cli.args_handler.default.DefaultArgsHandler'&gt;}</span></em><a class="headerlink" href="#id0" title="この定義へのパーマリンク"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-blueprintpy.cli.args_handler.default">
-<span id="blueprintpy-cli-args-handler-default"></span><h2>blueprintpy.cli.args_handler.default<a class="headerlink" href="#module-blueprintpy.cli.args_handler.default" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="module-blueprintpy.cli.args_handler.default">
+<span id="blueprintpy-cli-args-handler-default"></span><h2>blueprintpy.cli.args_handler.default<a class="headerlink" href="#module-blueprintpy.cli.args_handler.default" title="この見出しへのパーマリンク"></a></h2>
 <p>引数ハンドラのデフォルト実装</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.default.DefaultArgsHandler">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.default.</span></span><span class="sig-name descname"><span class="pre">DefaultArgsHandler</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.default.DefaultArgsHandler" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>ベースクラス: <a class="reference internal" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase" title="blueprintpy.cli.args_handler.base.ArgsHandlerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">blueprintpy.cli.args_handler.base.ArgsHandlerBase</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.default.</span></span><span class="sig-name descname"><span class="pre">DefaultArgsHandler</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.default.DefaultArgsHandler" title="この定義へのパーマリンク"></a></dt>
+<dd><p>ベースクラス: <a class="reference internal" href="#blueprintpy.cli.args_handler.base.ArgsHandlerBase" title="blueprintpy.cli.args_handler.base.ArgsHandlerBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgsHandlerBase</span></code></a></p>
 <p>(プロパティ <code class="code docutils literal notranslate"><span class="pre">__handler_name__</span></code> の値は <code class="code docutils literal notranslate"><span class="pre">__default__</span></code> です.)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.default.DefaultArgsHandler.handle_args">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">handle_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">blueprintpy.core.argument.Argument</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">blueprintpy.core.argument.Argument</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.default.DefaultArgsHandler.handle_args" title="この定義へのパーマリンク">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">handle_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">Argument</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">Argument</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.default.DefaultArgsHandler.handle_args" title="この定義へのパーマリンク"></a></dt>
 <dd><p>各テンプレート引数について、プロパティ <code class="code docutils literal notranslate"><span class="pre">argtype</span></code> の値に対応する名称のレゾルバを探します.
 次に各レゾルバに引数オブジェクトを投入し、処理結果を プロパティ <code class="code docutils literal notranslate"><span class="pre">value</span></code> に代入して返します.</p>
 <p>対応するレゾルバが存在しない場合は <code class="code docutils literal notranslate"><span class="pre">RuntimeError</span></code>, レゾルバの処理が失敗した場合は <a class="reference internal" href="#blueprintpy.cli.args_handler.exceptions.ValidationError" title="blueprintpy.cli.args_handler.exceptions.ValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.ValidationError</span></code></a> が送出されます.</p>
@@ -265,73 +171,56 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-blueprintpy.cli.args_handler.exceptions">
-<span id="blueprintpy-cli-args-handler-exceptions"></span><h2>blueprintpy.cli.args_handler.exceptions<a class="headerlink" href="#module-blueprintpy.cli.args_handler.exceptions" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</section>
+<section id="module-blueprintpy.cli.args_handler.exceptions">
+<span id="blueprintpy-cli-args-handler-exceptions"></span><h2>blueprintpy.cli.args_handler.exceptions<a class="headerlink" href="#module-blueprintpy.cli.args_handler.exceptions" title="この見出しへのパーマリンク"></a></h2>
 <p>引数の処理過程で発生する例外</p>
 <dl class="py exception">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.exceptions.</span></span><span class="sig-name descname"><span class="pre">ArgumentHandlingError</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError" title="この定義へのパーマリンク">¶</a></dt>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.exceptions.</span></span><span class="sig-name descname"><span class="pre">ArgumentHandlingError</span></span><a class="headerlink" href="#blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError" title="この定義へのパーマリンク"></a></dt>
 <dd><p>ベースクラス: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
 <p>(基底クラス)</p>
 </dd></dl>
 
 <dl class="py exception">
 <dt class="sig sig-object py" id="blueprintpy.cli.args_handler.exceptions.ValidationError">
-<em class="property"><span class="pre">exception</span> </em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.exceptions.</span></span><span class="sig-name descname"><span class="pre">ValidationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argument</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">blueprintpy.core.argument.Argument</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blueprintpy.cli.args_handler.exceptions.ValidationError" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>ベースクラス: <a class="reference internal" href="#blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError" title="blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError"><code class="xref py py-class docutils literal notranslate"><span class="pre">blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError</span></code></a></p>
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">blueprintpy.cli.args_handler.exceptions.</span></span><span class="sig-name descname"><span class="pre">ValidationError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">argument</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="blueprintpy.core.html#blueprintpy.core.argument.Argument" title="blueprintpy.core.argument.Argument"><span class="pre">Argument</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">reason</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#blueprintpy.cli.args_handler.exceptions.ValidationError" title="この定義へのパーマリンク"></a></dt>
+<dd><p>ベースクラス: <a class="reference internal" href="#blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError" title="blueprintpy.cli.args_handler.exceptions.ArgumentHandlingError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ArgumentHandlingError</span></code></a></p>
 <p>引数に渡された値が不正だった場合に発生する例外.</p>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="blueprintpy.cli.args_handler.resolver.html" class="btn btn-neutral float-right" title="blueprintpy.cli.args_handler.resolver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="blueprintpy.cli.html" class="btn btn-neutral float-left" title="blueprintpy.cli" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="blueprintpy.cli.args_handler.resolver.html" class="btn btn-neutral float-right" title="blueprintpy.cli.args_handler.resolver" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2022, Enchan1207.
-
-    </p>
+    <p>&#169; Copyright 2022, Enchan1207.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
