@@ -53,6 +53,7 @@ jobs:
       - name: Modify files
         run: |
           sed -i -e "s/version=.*/version=${{ env.next_full_version }}/" setup.cfg
+          sed -i -e "s/version =.*/version = \"${{ env.next_full_version }}\"/" src/blueprintpy/core/__init__.py
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
