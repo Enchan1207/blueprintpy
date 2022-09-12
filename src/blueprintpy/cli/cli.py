@@ -152,6 +152,15 @@ def main() -> int:
     content_builder = ContentBuilder(template_root, extract_root, prepared_args)
     prepared_contents = [content_builder.build(content) for content in config.contents]
 
+    # 配置先ディレクトリが空でなかったら警告を表示
+    if not is_dry_run and (len(list(extract_root.iterdir())) != 0):
+        logger.warning("\033[33mWARNING:extract destination (specified at [target] operand) includes files or directories.")
+        logger.warning("Continue? [yN]\033[0m")
+
+        if input().lower() != "y":
+            print("Aborted.")
+            return 0
+
     # 配置
     logger.info(f"Extracting...")
     for content in prepared_contents:
