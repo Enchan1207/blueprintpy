@@ -67,7 +67,8 @@ jobs:
       - name: Commit and push built documents
         run: |
           for document in $( ls docs/build ); do
-              mv -f docs/build/${document} .
+              rm -rf ./${document}
+              mv docs/build/${document} .
               git add ${document}
           done
           touch .nojekyll
