@@ -29,6 +29,9 @@ class ArgsHandlerBase(metaclass=ABCMeta):
 
         cls.handlers.add(cls)
 
+    def __str__(self) -> str:
+        return self.__handler_name__
+
     @staticmethod
     @abstractmethod
     def handle_args(args: List[Argument]) -> List[Argument]:
