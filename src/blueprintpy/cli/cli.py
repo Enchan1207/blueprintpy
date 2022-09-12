@@ -136,7 +136,7 @@ def main() -> int:
     args_handler_name = config.args_handler_name or "__default__"
     logger.info(f"Resolve argument handler \033[36m{args_handler_name}\033[0m...")
     args_handler_candidates = list(filter(lambda handler: handler.__handler_name__ == args_handler_name, ArgsHandlerBase.handlers))
-    logger.info(f"Candidates: {','.join([h.__handler_name__ for h in args_handler_candidates])}")
+    logger.info(f"Candidates: {','.join(map(str, args_handler_candidates))}")
     if len(args_handler_candidates) != 1:
         logger.error("\033[31;1mCould not identify argument handler.\033[0m")
         return 1
