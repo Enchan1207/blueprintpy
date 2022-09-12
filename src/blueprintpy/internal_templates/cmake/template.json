@@ -10,9 +10,9 @@
             "description": "The description of project"
         },
         {
-            "name": "lib_or_exec",
-            "description": "Project type, executable(default) or library",
-            "default_value": "executable"
+            "name": "cpp_standard",
+            "description": "Minimum version of C++ to use in the project, default is 17",
+            "default_value": "17"
         }
     ],
     "contents": [
@@ -33,16 +33,24 @@
             "dest": "tests/CMakeLists.txt"
         },
         {
+            "src": "CMakeLists_cli.j2",
+            "dest": "cli/CMakeLists.txt"
+        },
+        {
             "src": "project.cpp.j2",
             "dest": "src/{{project_name|lower}}.cpp"
         },
         {
             "src": "project.hpp.j2",
-            "dest": "src/{{project_name|lower}}.hpp"
+            "dest": "include/{{project_name|lower}}.hpp"
         },
         {
             "src": "test_project.cpp.j2",
             "dest": "tests/test_{{project_name|lower}}.cpp"
+        },
+        {
+            "src": "main.cpp.j2",
+            "dest": "cli/main.cpp"
         }
     ]
 }
