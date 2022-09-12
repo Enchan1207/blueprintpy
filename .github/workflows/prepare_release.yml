@@ -27,7 +27,7 @@ jobs:
 
       - name: build document using sphinx
         run: |
-          pip install sphinx
+          pip install sphinx sphinx_rtd_theme
           sphinx-build doc_sources/ docs/
 
       - uses: stefanzweifel/git-auto-commit-action@v4
