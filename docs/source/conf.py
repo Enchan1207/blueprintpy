@@ -11,7 +11,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath('../../src'))
-
+from blueprintpy.core import version as core_version
 
 # -- プロジェクト情報
 
@@ -20,7 +20,7 @@ copyright = '2022, Enchan1207'
 author = 'Enchan1207'
 
 # alpha/beta/rcタグを含む完全なバージョン情報
-release = 'v2.0.6'
+release = f"v{core_version}"
 
 
 # -- 一般設定
