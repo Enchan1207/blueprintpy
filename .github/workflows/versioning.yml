@@ -62,6 +62,11 @@ jobs:
     if: needs.check_should_versioning.outputs.compare_result = 0
 
     steps:
+      # リリースブランチをチェックアウト
+      - uses: actions/checkout@v3
+        with:
+          ref: "release"
+
       # バージョニングを行い
       - name: versioning
         run: bash ./ci_scripts/versioning.sh "${{ needs.check_should_versioning.outputs.next_version_candidate }}"
@@ -83,6 +88,4 @@ jobs:
           fi
 
           git commit -am "[Release] v${{ env.NEXT_VERSION_CANDIDATE }}"
-          git tag -a v${{ env.NEXT_VERSION_CANDIDATE }} -m "Automated release v${{ env.NEXT_VERSION_CANDIDATE }}"
           git push origin release
-          git push origin v${{ env.NEXT_VERSION_CANDIDATE }}
