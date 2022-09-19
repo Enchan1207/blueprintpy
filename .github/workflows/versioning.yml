@@ -1,0 +1,88 @@
+#
+# versioning - バージョニング
+#
+name: versioning
+
+# 実行条件:
+#  - merge @release
+on:
+  pull_request:
+    branches: [release]
+    types: [closed]
+
+jobs:
+  # バージョニングが必要かチェック
+  check_should_versioning:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+
+    outputs:
+      compare_result: ${{ steps.pass_result.outputs.compare_result }}
+      next_version_candidate: ${{ steps.pass_result.outputs.next_version_candidate }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: "release" # リリースブランチをチェックアウトする
+
+      # 最新バージョンの取得
+      - name: get latest release version
+        run: |
+          . ./ci_scripts/functions.sh
+          CURRENT_VERSION=`searchLatestVersion | sed 's/^v//'`
+          echo "Latest version: v${CURRENT_VERSION}"
+          echo "CURRENT_VERSION=${CURRENT_VERSION}" >> $GITHUB_ENV
+
+      # 次期バージョンの計算
+      - name: calculate next version
+        run: |
+          NEXT_VERSION_CANDIDATE=`bash ./ci_scripts/vercalc.sh | tail -n 1`
+          echo "Next release candidate: ${NEXT_VERSION_CANDIDATE}"
+          echo "NEXT_VERSION_CANDIDATE=${NEXT_VERSION_CANDIDATE}" >> $GITHUB_ENV
+
+      # 比較+バージョニングの必要があるか判定
+      - name: compare current and next version
+        run: |
+          . ./ci_scripts/functions.sh
+          isNewVersion "${{ env.CURRENT_VERSION }}" "${{ env.NEXT_VERSION_CANDIDATE }}"; result=$?
+          echo "VERSION_COMPARE_RESULT=${result}" >> $GITHUB_ENV
+
+      # 結果を次のジョブに渡す
+      - name: path result to next job as output
+        id: pass_result
+        run: |
+          echo "::set-output name=compare_result::${{ env.VERSION_COMPARE_RESULT }}"
+          echo "::set-output name=next_version_candidate::${{ env.NEXT_VERSION_CANDIDATE }}"
+
+  # バージョニング
+  versioning:
+    runs-on: ubuntu-latest
+    needs: check_should_versioning
+
+    if: needs.check_should_versioning.outputs.compare_result = 0
+
+    steps:
+      # バージョニングを行い
+      - name: versioning
+        run: bash ./ci_scripts/versioning.sh "${{ needs.check_should_versioning.outputs.next_version_candidate }}"
+
+      # Gitをセットアップして
+      - name: Git setup
+        run: |
+          set -x
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      # 結果をcommitし、タグを打ってリリースブランチにpush
+      - name: Commit and push versioning
+        run: |
+          git add --all
+          git diff --quiet && git diff --staged --quiet; is_repo_clean=$?
+          if [ ${is_repo_clean} -eq 0 ]; then
+            exit 0
+          fi
+
+          git commit -am "[Release] v${{ env.NEXT_VERSION_CANDIDATE }}"
+          git tag -a v${{ env.NEXT_VERSION_CANDIDATE }} -m "Automated release v${{ env.NEXT_VERSION_CANDIDATE }}"
+          git push origin release
+          git push origin v${{ env.NEXT_VERSION_CANDIDATE }}
