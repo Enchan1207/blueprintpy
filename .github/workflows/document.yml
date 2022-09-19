@@ -1,21 +1,22 @@
 #
-# document
+# document - ドキュメントのビルド、デプロイ
 #
 name: document
 
-# Only executed when PRs are merged into a release or develop branch
-# ref: https://qiita.com/okazy/items/7ab46f2c20ec341a2836
+# 実行条件:
+#  - push @develop
+#  - versioningワークフロー完了 @release
 on:
-  pull_request:
-    branches:
-      - release
-      - develop
-    types: [closed]
+  push:
+    branches: [develop]
+  workflow_run:
+    workflows: [versioning]
+    branches: [release]
+    types: [completed]
 
 jobs:
   document:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
 
     steps:
       - uses: actions/checkout@v3
