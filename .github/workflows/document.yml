@@ -6,7 +6,9 @@ name: document
 # 実行条件
 on:
   push:
-    branches: [develop]
+    branches:
+      - develop
+      - release
     paths:
       - "src/**"
       - "docs/source/**"
@@ -21,6 +23,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Git setup
+        run: |
+          set -x
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Checkout branches and fetch tags
+        run: |
+          git fetch --all --tags
+          git checkout release
+          git checkout develop
 
       - uses: actions/setup-python@v2
         with:
@@ -56,12 +70,6 @@ jobs:
 
       - name: Add root HTML source (for redirect to release branch)
         run: cp docs/source/redirect.html docs/build/index.html
-
-      - name: Git setup
-        run: |
-          set -x
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
       - name: Switch to orphan branch for deploying to GitHub Pages
         run: |
