@@ -33,10 +33,9 @@ jobs:
 
       - name: Checkout branches and fetch tags
         run: |
-          git branch
+          git fetch --all --tags
           git checkout release
           git checkout develop
-          git fetch --all --tags
 
       - uses: actions/setup-python@v2
         with:
