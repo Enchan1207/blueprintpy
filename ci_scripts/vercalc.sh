@@ -123,23 +123,6 @@ if [ -n "$SPECIFIED_VERSION_STR" ]; then
     fi
 fi
 
-# gitのdiffから、バージョニングが必要な変更かチェックする
-# 具体的には、PyPI配布パッケージとして変化が生じる可能性のない変更 (rst, ymlファイルの更新など) についてはその対象とせず、
-# ソース、テンプレの変更のみを対象とする.
-echo "Analyse git diffs..."
-DIFFS=`git diff ${FROM}^..${TO} --name-only`
-if [ $? -ne $EXIT_SUCCESS ]; then
-    log "\033[31;1mFATAL\033[0m Failed to get diff."
-    exit $EXIT_FAILURE
-fi
-SOURCE_DIFFS_COUNT=`echo "${DIFFS[*]}" | sed -rn "s/^src\//\0/p" | wc -l | sed "s/ //g"`
-CFGS_DIFFS_COUNT=`echo "${DIFFS[*]}" | sed -rn "s/^.*\.cfg$/\0/p" | wc -l | sed "s/ //g"`
-if [ $(( SOURCE_DIFFS_COUNT )) -eq 0 ] && [ $(( CFGS_DIFFS_COUNT )) -eq 0 ]; then
-    log "\033[33;1mWARNING\033[0m Based on the commit history, it was determined that no need to upgrade."
-    log "$CURRENT_VERSION_STR"
-    exit $EXIT_SUCCESS
-fi
-
 # 次期バージョンの増分を求める
 echo "Calculate version increments..."
 IFS=","
