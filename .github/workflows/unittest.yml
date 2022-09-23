@@ -1,8 +1,11 @@
 #
-# unittest
+# unittest - 単体テスト
 #
 name: unittest
 
+# 実行条件:
+#  - push @develop, release
+#  - PR @develop
 on:
   push:
     branches:
