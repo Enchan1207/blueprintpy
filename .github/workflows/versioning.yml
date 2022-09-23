@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: check_should_versioning
 
-    if: needs.check_should_versioning.outputs.compare_result = 0
+    if: needs.check_should_versioning.outputs.compare_result == 0
 
     steps:
       # リリースブランチをチェックアウト
