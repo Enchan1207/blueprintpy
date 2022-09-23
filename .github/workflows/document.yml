@@ -5,12 +5,12 @@ name: document
 
 # 実行条件:
 #  - push @develop
-#  - versioningワークフロー完了 @release
+#  - releaseワークフロー完了 @release
 on:
   push:
     branches: [develop]
   workflow_run:
-    workflows: [versioning]
+    workflows: [release]
     branches: [release]
     types: [completed]
 
