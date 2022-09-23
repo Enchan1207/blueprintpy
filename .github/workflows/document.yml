@@ -25,8 +25,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Git setup
+        run: |
+          set -x
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
       - name: Checkout branches and fetch tags
         run: |
+          git branch
           git checkout release
           git checkout develop
           git fetch --all --tags
@@ -65,12 +72,6 @@ jobs:
 
       - name: Add root HTML source (for redirect to release branch)
         run: cp docs/source/redirect.html docs/build/index.html
-
-      - name: Git setup
-        run: |
-          set -x
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
 
       - name: Switch to orphan branch for deploying to GitHub Pages
         run: |
