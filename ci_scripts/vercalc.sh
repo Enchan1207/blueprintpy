@@ -60,22 +60,23 @@ log "Analyse commit history from \033[35;1m$TO\033[0m -> \033[35;1m$FROM\033[0m 
 # 現時点の最新バージョンを探し、バリデーション+パースしておく
 IFS="."
 CURRENT_VERSION=( `validateVersion "$TO" | sed 's/v//'` )
-CURRENT_VERSION_STR="${CURRENT_VERSION[*]}"
 if [ $? -ne $EXIT_SUCCESS ]; then
     log "\033[31;1mFATAL\033[0m Failed to parse specified version $TO."
     IFS=$OLDIFS
     exit $EXIT_FAILURE
 fi
+CURRENT_VERSION_STR="${CURRENT_VERSION[*]}"
 IFS=$OLDIFS
 
 # git logからコミットメッセージの先頭部分のみを抜き出す
 IFS=$'\n'
 COMMIT_MESSAGES=( `git log $FROM...$TO | sed -rn 's/^    \[//p' | cut -c 1-40 | uniq` ) # uniqを挟んでいるのは、PRのマージ時にコミットメッセージがコピーされるため
-IFS=$OLDIFS
 if [ $? -ne $EXIT_SUCCESS ]; then
+    IFS=$OLDIFS
     log "\033[31;1mFATAL\033[0m Failed to get commits. Please check if you specified correct ref."
     exit $EXIT_FAILURE
 fi
+IFS=$OLDIFS
 log "Commits: \033[;1m${#COMMIT_MESSAGES[*]}\033[0m"
 
 # コミットのプレフィックス(Add, Update, Modify...)ごとに計数し、内訳をいい感じに表示
