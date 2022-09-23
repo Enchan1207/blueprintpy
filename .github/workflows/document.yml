@@ -6,10 +6,13 @@ name: document
 # 実行条件
 on:
   push:
-    branches: [develop]
-    paths:
-      - "src/**"
-      - "docs/source/**"
+    branches:
+      - develop
+      - release
+      - issue/113-fix-doc-workflow
+    # paths:
+    #   - "src/**"
+    #   - "docs/source/**"
 
   workflow_run:
     workflows: [release]
@@ -21,6 +24,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Checkout branches and fetch tags
+        run: |
+          git checkout release
+          git checkout develop
+          git fetch --all --tags
 
       - uses: actions/setup-python@v2
         with:
