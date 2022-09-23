@@ -66,7 +66,7 @@ html_context = {
     'display_github': True,
     'github_user': 'Enchan1207',
     'github_repo': 'blueprintpy',
-    'github_version': 'release/docs/source',
+    'github_version': 'release/docs/source/'
 }
 
 # sphinx-multiversion
