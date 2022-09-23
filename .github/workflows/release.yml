@@ -9,6 +9,9 @@ on:
   pull_request:
     branches: [release]
     types: [closed]
+    paths:
+      - "src/**"
+      - "**.cfg"
 
 jobs:
   # バージョニングが必要かチェック

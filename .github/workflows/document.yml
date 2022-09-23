@@ -3,15 +3,16 @@
 #
 name: document
 
-# 実行条件:
-#  - push @develop
-#  - releaseワークフロー完了 @release
+# 実行条件
 on:
   push:
     branches: [develop]
+    paths:
+      - "src/**"
+      - "docs/source/**"
+
   workflow_run:
     workflows: [release]
-    branches: [release]
     types: [completed]
 
 jobs:

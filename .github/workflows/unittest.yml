@@ -4,16 +4,20 @@
 name: unittest
 
 # 実行条件:
-#  - push @develop, release
-#  - PR @develop
 on:
   push:
     branches:
       - release
       - develop
+    paths:
+      - "src/**"
+      - "tests/**"
   pull_request:
     branches:
       - develop
+    paths:
+      - "src/**"
+      - "tests/**"
 
 jobs:
   unittest:
