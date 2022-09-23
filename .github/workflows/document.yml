@@ -9,10 +9,9 @@ on:
     branches:
       - develop
       - release
-      - issue/113-fix-doc-workflow
-    # paths:
-    #   - "src/**"
-    #   - "docs/source/**"
+    paths:
+      - "src/**"
+      - "docs/source/**"
 
   workflow_run:
     workflows: [release]
