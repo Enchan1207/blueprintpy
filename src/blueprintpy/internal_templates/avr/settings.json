@@ -1,0 +1,8 @@
+{
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/.vscode/compile_commands.json",
+    "cmake.sourceDirectory": "${workspaceFolder}/app",
+    "cmake.buildDirectory": "${workspaceFolder}/app/build",
+    "cmake.exportCompileCommandsFile": true,
+    "cmake.copyCompileCommands": "${workspaceFolder}/.vscode/compile_commands.json",
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+}
