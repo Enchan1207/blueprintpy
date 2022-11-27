@@ -13,4 +13,4 @@ from .content import Content as Content
 from .config import Config as Config
 from .argument import Argument as Argument
 
-version = "2.1.0"
+version = "2.2.0"
