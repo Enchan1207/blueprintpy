@@ -1,0 +1,52 @@
+{
+    "name": "avr",
+    "args": [
+        {
+            "name": "project_name",
+            "description": "The name of project"
+        },
+        {
+            "name": "project_descripiton",
+            "description": "The description of project"
+        },
+        {
+            "name": "license",
+            "description": "The license name of project",
+            "default_value": "MIT License"
+        }
+    ],
+    "contents": [
+        {
+            "src": "README.md.j2",
+            "dest": "README.md"
+        },
+        {
+            "src": "settings.json",
+            "dest": ".vscode/settings.json"
+        },
+        {
+            "src": "avr_toolchain.cmake",
+            "dest": "app/cmake/avr_toolchain.cmake"
+        },
+        {
+            "src": "CMakeLists_app.txt.j2",
+            "dest": "app/CMakeLists.txt"
+        },
+        {
+            "src": "CMakeLists_app_src.txt.j2",
+            "dest": "app/src/CMakeLists.txt"
+        },
+        {
+            "src": "main.cpp.j2",
+            "dest": "app/src/main.cpp"
+        },
+        {
+            "src": "app.gitignore",
+            "dest": "app/.gitignore"
+        },
+        {
+            "src": "root.gitignore",
+            "dest": ".gitignore"
+        }
+    ]
+}
